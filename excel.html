@@ -2162,6 +2162,18 @@
                             if (!classExists(cls, sec)) {
                                 if (addClass(cls, sec)) count++;
                             }
+                            const classTeacherId = row[2] ? row[2].trim().toUpperCase() : '';
+                            if (classTeacherId) {
+                                const key = getClassKey(cls, sec);
+                                if (!appData.teachers[classTeacherId]) {
+                                    appData.teachers[classTeacherId] = {
+                                        name: classTeacherId,
+                                        minimalId: classTeacherId.slice(0, 2),
+                                        subjects: []
+                                    };
+                                }
+                                setClassTeacher(key, classTeacherId);
+                            }
                         }
                     });
                     showToast('Imported ' + count + ' classes');
@@ -2227,7 +2239,9 @@
                         showToast('Invalid timetable CSV header', 'error');
                     } else {
                         let importedRows = 0;
-                        const periodsInFile = headers.slice(2).map(h => h.trim()).filter(h => /^P\d+$/.test(h));
+                        const hasTeacherCol = headers[2] && headers[2].trim().toUpperCase() === 'CLASSTEACHERID';
+                        const periodStartIdx = hasTeacherCol ? 3 : 2;
+                        const periodsInFile = headers.slice(periodStartIdx).map(h => h.trim()).filter(h => /^P\d+$/.test(h));
                         if (periodsInFile.length > 0) {
                             const targetPeriods = Math.min(Math.max(periodsInFile.length, 4), 10);
                             if (targetPeriods !== getPeriodsPerDay()) {
@@ -2247,7 +2261,7 @@
                             }
                         }
                         data.forEach(row => {
-                            if (row.length < 3) return;
+                            if (row.length < periodStartIdx + 1) return;
                             const classSection = row[0].trim();
                             const day = row[1].trim();
                             if (!classSection || !day) return;
@@ -2263,7 +2277,20 @@
                             if (!appData.timetable[key]) {
                                 addClass(cls, sec);
                             }
-                            row.slice(2).forEach((cell, index) => {
+                            if (hasTeacherCol) {
+                                const classTeacherId = row[2] ? row[2].trim().toUpperCase() : '';
+                                if (classTeacherId) {
+                                    if (!appData.teachers[classTeacherId]) {
+                                        appData.teachers[classTeacherId] = {
+                                            name: classTeacherId,
+                                            minimalId: classTeacherId.slice(0, 2),
+                                            subjects: []
+                                        };
+                                    }
+                                    setClassTeacher(key, classTeacherId);
+                                }
+                            }
+                            row.slice(periodStartIdx).forEach((cell, index) => {
                                 const periodKey = 'P' + (index + 1);
                                 if (!cell || !cell.trim()) {
                                     clearCell(key, day, periodKey);
@@ -2306,30 +2333,24 @@
             const periodKeys = [];
             for (let p = 1; p <= pCount; p++) periodKeys.push('P' + p);
             const rows = [];
-            rows.push(['Class-Section', 'Day', ...periodKeys].join(','));
-            getClassKeys().forEach(c => {
+            getClassList().forEach(c => {
+                const key = getClassKey(c.class, c.section);
+                const classTeacherId = getClassTeacher(key) || '';
                 DAYS.forEach(d => {
-                    const row = [c, d];
+                    const row = [key, d, classTeacherId];
                     periodKeys.forEach(p => {
-                        const val = getCellValue(c, d, p);
+                        const val = getCellValue(key, d, p);
                         if (val.subject && val.teacher) {
                             const tName = getTeacherName(val.teacher);
-                            const sCode = val.subject;
-                            row.push(val.teacher + ':' + tName + ':' + sCode);
+                            row.push(val.teacher + ':' + tName + ':' + val.subject);
                         } else {
                             row.push('');
                         }
                     });
-                    rows.push(row.join(','));
+                    rows.push(row);
                 });
             });
-            const blob = new Blob([rows.join('\n')], { type: 'text/csv' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'timetable_export.csv';
-            a.click();
-            URL.revokeObjectURL(url);
+            downloadCSV('timetable_export.csv', ['Class-Section', 'Day', 'ClassTeacherID', ...periodKeys], rows);
             showToast('Exported successfully');
         }
 
