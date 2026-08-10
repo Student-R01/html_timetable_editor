@@ -458,6 +458,349 @@
             color: #166534 !important;
             font-weight: 700;
         }
+
+        /* ───────────── ELDER-FRIENDLY MASTER VIEW ───────────── */
+        #masterElderView {
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 6px 20px 16px;
+            box-sizing: border-box;
+        }
+        .elder-header {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 12px 14px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+            margin-bottom: 12px;
+        }
+        .elder-mode-toggle {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        .elder-mode-btn {
+            flex: 1;
+            padding: 9px 8px;
+            font-size: 14px;
+            font-weight: 700;
+            border-radius: 8px;
+            border: 2px solid #e2e8f0;
+            background: #f8fafc;
+            color: #334155;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .elder-mode-btn:hover {
+            border-color: #94a3b8;
+        }
+        .elder-mode-btn.active {
+            background: #2563eb;
+            border-color: #2563eb;
+            color: #fff;
+        }
+        .elder-select-row label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 6px;
+        }
+        .elder-select-row select {
+            width: 100%;
+            font-size: 15px;
+            padding: 8px 10px;
+            border: 2px solid #cbd5e1;
+            border-radius: 8px;
+            background: #ffffff;
+            color: #0f172a;
+            height: 40px;
+            cursor: pointer;
+        }
+        .elder-select-row select:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+        .elder-empty {
+            text-align: center;
+            font-size: 13px;
+            color: #64748b;
+            padding: 40px 16px;
+            background: #ffffff;
+            border: 1px dashed #cbd5e1;
+            border-radius: 8px;
+        }
+        .elder-name-banner {
+            font-size: 16px;
+            font-weight: 800;
+            color: #0f172a;
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 8px;
+            padding: 10px 14px;
+            margin-bottom: 10px;
+        }
+        .elder-name-banner .elder-sub {
+            font-size: 11px;
+            font-weight: 500;
+            color: #475569;
+            margin-top: 2px;
+        }
+        table.elder-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+        }
+        table.elder-table th,
+        table.elder-table td {
+            border: 1px solid #e2e8f0;
+            padding: 7px 6px;
+            text-align: center;
+            font-size: 12px;
+        }
+        table.elder-table thead th {
+            background: #2563eb;
+            color: #fff;
+            font-size: 11.5px;
+            font-weight: 700;
+            padding: 8px 6px;
+        }
+        table.elder-table tbody th {
+            background: #f1f5f9;
+            color: #1e293b;
+            font-weight: 700;
+            white-space: nowrap;
+            text-align: left;
+            font-size: 11.5px;
+        }
+        table.elder-table tbody th .elder-period-time {
+            display: block;
+            font-size: 9px;
+            font-weight: 500;
+            color: #64748b;
+        }
+        table.elder-table tbody tr:nth-child(even) td {
+            background: #f8fafc;
+        }
+        table.elder-table td .elder-cell-subj {
+            font-weight: 700;
+            color: #0f172a;
+            display: block;
+        }
+        table.elder-table td .elder-cell-sub2 {
+            font-size: 10px;
+            color: #475569;
+            display: block;
+            margin-top: 1px;
+        }
+        table.elder-table td.elder-free {
+            color: #94a3b8;
+            font-style: italic;
+        }
+        table.elder-table tr.elder-break-row td {
+            background: #fef9c3 !important;
+            color: #854d0e;
+            font-weight: 700;
+            font-size: 11px;
+        }
+
+        /* ───────────── TEACHER WORKLOAD REGISTER (Master View) ───────────── */
+        #teacherWorkloadSection {
+            max-width: 1400px;
+            width: 100%;
+            margin: 18px auto 0;
+        }
+        .wl-header-row {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        .wl-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1e293b;
+        }
+        .wl-hint {
+            font-size: 11px;
+            color: #64748b;
+        }
+        .wl-dept-manager {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 6px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 8px 10px;
+            margin-bottom: 10px;
+        }
+        .wl-dept-manager-label {
+            font-size: 11.5px;
+            font-weight: 700;
+            color: #475569;
+            margin-right: 2px;
+        }
+        .wl-dept-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: #eef2ff;
+            color: #3730a3;
+            font-size: 11.5px;
+            font-weight: 600;
+            padding: 4px 6px 4px 10px;
+            border-radius: 999px;
+            border: 1px solid #c7d2fe;
+        }
+        .wl-dept-chip button {
+            border: none;
+            background: #c7d2fe;
+            color: #3730a3;
+            width: 16px;
+            height: 16px;
+            line-height: 16px;
+            border-radius: 50%;
+            font-size: 11px;
+            cursor: pointer;
+            padding: 0;
+        }
+        .wl-dept-chip button:hover {
+            background: #a5b4fc;
+        }
+        .wl-dept-add {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .wl-dept-add input {
+            font-size: 12px;
+            padding: 5px 8px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            width: 140px;
+        }
+        .wl-dept-add input:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+        .wl-dept-add button {
+            font-size: 12px;
+            font-weight: 700;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 6px;
+            background: #2563eb;
+            color: #fff;
+            cursor: pointer;
+        }
+        .wl-dept-add button:hover {
+            background: #1d4ed8;
+        }
+        table.workload-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            overflow: hidden;
+            font-size: 12px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+        }
+        table.workload-table th, table.workload-table td {
+            border: 1px solid #e2e8f0;
+            padding: 5px 6px;
+            text-align: center;
+            vertical-align: middle;
+        }
+        table.workload-table thead th {
+            background: #334155;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 7px 6px;
+        }
+        table.workload-table tbody tr:nth-child(even) {
+            background: #f8fafc;
+        }
+        table.workload-table td.wl-name-cell {
+            text-align: left;
+            font-weight: 600;
+            color: #0f172a;
+        }
+        table.workload-table td.wl-sections-cell {
+            text-align: left;
+            color: #475569;
+            font-size: 11px;
+        }
+        table.workload-table td.wl-dept-cell {
+            background: #eef2ff;
+            vertical-align: middle;
+        }
+        table.workload-table .wl-dept-select {
+            width: 100%;
+            border: none;
+            background: transparent;
+            text-align: center;
+            font-weight: 700;
+            font-size: 11.5px;
+            color: #3730a3;
+            padding: 4px 2px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        table.workload-table .wl-dept-select:focus {
+            outline: none;
+            background: #e0e7ff;
+        }
+        table.workload-table .wl-extra-input {
+            width: 100%;
+            border: none;
+            background: transparent;
+            text-align: center;
+            font-size: 11.5px;
+            color: #334155;
+            padding: 4px 2px;
+            border-radius: 4px;
+        }
+        table.workload-table .wl-load-input {
+            width: 52px;
+            border: 1px solid #cbd5e1;
+            background: #fff;
+            text-align: center;
+            font-weight: 700;
+            font-size: 12px;
+            color: #0f172a;
+            padding: 3px 2px;
+            border-radius: 4px;
+        }
+        table.workload-table .wl-manual-tag {
+            font-size: 10px;
+            color: #d97706;
+            margin-left: 3px;
+            cursor: help;
+        }
+        table.workload-table .wl-extra-input:hover {
+            background: #f1f5f9;
+        }
+        table.workload-table .wl-extra-input:focus,
+        table.workload-table .wl-load-input:focus {
+            outline: none;
+            border-color: #2563eb;
+            background: #eff6ff;
+        }
+        table.workload-table td.wl-empty {
+            padding: 20px;
+            color: #94a3b8;
+            font-style: italic;
+        }
+
         #tableWrap .col-period .cell-content.event-cell .tchr {
             color: #16a34a !important;
         }
@@ -690,6 +1033,203 @@
         }
         #modalOverlay .modal.modal-lg {
             max-width: 980px;
+        }
+
+        /* ───────────── CUSTOM CONFIRM DIALOG (replaces browser confirm()) ───────────── */
+        #confirmOverlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.55);
+            z-index: 900;
+            align-items: center;
+            justify-content: center;
+        }
+        #confirmOverlay.open {
+            display: flex;
+        }
+        #confirmOverlay .confirm-box {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 20px 22px;
+            max-width: 420px;
+            width: 88%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+            animation: confirmPop 0.12s ease-out;
+        }
+        @keyframes confirmPop {
+            from { transform: scale(0.96); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        #confirmOverlay .confirm-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        #confirmOverlay .confirm-message {
+            font-size: 12px;
+            color: #334155;
+            line-height: 1.5;
+            white-space: pre-line;
+        }
+        #confirmOverlay .confirm-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+            margin-top: 18px;
+        }
+        #confirmOverlay .confirm-actions button {
+            padding: 6px 16px;
+            font-size: 11.5px;
+            font-weight: 600;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            background: #f1f5f9;
+            color: #1e293b;
+            cursor: pointer;
+        }
+        #confirmOverlay .confirm-actions button:hover {
+            background: #e2e8f0;
+        }
+        #confirmOverlay .confirm-actions button.confirm-ok {
+            background: #2563eb;
+            border-color: #2563eb;
+            color: #fff;
+        }
+        #confirmOverlay .confirm-actions button.confirm-ok:hover {
+            background: #1d4ed8;
+        }
+        #confirmOverlay .confirm-actions button.confirm-ok.danger {
+            background: #dc2626;
+            border-color: #dc2626;
+        }
+        #confirmOverlay .confirm-actions button.confirm-ok.danger:hover {
+            background: #b91c1c;
+        }
+
+        /* ───────────── FOCUS VISIBILITY (ACCESSIBILITY) ───────────── */
+        button:focus-visible,
+        a:focus-visible,
+        input:focus-visible,
+        select:focus-visible,
+        [tabindex]:focus-visible {
+            outline: 2px solid #2563eb;
+            outline-offset: 2px;
+        }
+
+        /* ───────────── HELP MODAL ───────────── */
+        #btnHelp {
+            background: #eef2ff;
+            border-color: #c7d2fe;
+            color: #4338ca;
+            font-weight: 700;
+        }
+        #btnHelp:hover {
+            background: #e0e7ff;
+        }
+        .help-topic {
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            overflow: hidden;
+        }
+        .help-topic summary {
+            cursor: pointer;
+            padding: 8px 12px;
+            font-weight: 700;
+            font-size: 12px;
+            background: #f8fafc;
+            color: #0f172a;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .help-topic summary::-webkit-details-marker { display: none; }
+        .help-topic summary::before {
+            content: '▸';
+            color: #64748b;
+            font-size: 11px;
+            transition: transform 0.15s;
+        }
+        .help-topic[open] summary::before {
+            transform: rotate(90deg);
+        }
+        .help-topic .help-body {
+            padding: 10px 14px 14px 14px;
+            font-size: 11.5px;
+            line-height: 1.6;
+            color: #334155;
+        }
+        .help-topic .help-body ul {
+            margin: 6px 0 6px 18px;
+        }
+        .help-topic .help-body b {
+            color: #0f172a;
+        }
+        #helpSearchBox {
+            width: 100%;
+            padding: 7px 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 12px;
+            margin-bottom: 12px;
+        }
+        .help-copy-row {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+        }
+        .info-dot {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #e0e7ff;
+            color: #4338ca;
+            font-size: 10px;
+            font-weight: 800;
+            cursor: pointer;
+            border: none;
+            margin-left: 4px;
+            vertical-align: middle;
+        }
+        .info-dot:hover {
+            background: #c7d2fe;
+        }
+        #backupBanner {
+            display: none;
+            align-items: center;
+            gap: 10px;
+            background: #fffbeb;
+            border-bottom: 1px solid #fde68a;
+            color: #92400e;
+            font-size: 11px;
+            padding: 5px 14px;
+        }
+        #backupBanner.show { display: flex; }
+        #backupBanner button {
+            background: #fbbf24;
+            border: none;
+            border-radius: 4px;
+            padding: 2px 10px;
+            font-size: 10.5px;
+            font-weight: 700;
+            color: #78350f;
+            cursor: pointer;
+        }
+        #backupBanner .dismiss {
+            background: none;
+            color: #92400e;
+            text-decoration: underline;
+            font-weight: 500;
         }
 
         /* SUBST module */
@@ -1305,12 +1845,13 @@
         <!-- TOP BAR -->
         <div id="topBar">
             <div class="bar-inner">
-                <button class="bar-toggle" id="topBarToggle" title="Toggle top stats">▾</button>
+                <button class="bar-toggle" id="topBarToggle" title="Toggle top stats" aria-label="Show or hide the stats bar">▾</button>
                 
                 <!-- Single Interactive Mode Toggle Button -->
-                <button id="btnModeToggle" class="mode-toggle-btn working" onclick="toggleViewMode()" title="Click to switch space">
+                <button id="btnModeToggle" class="mode-toggle-btn working" onclick="toggleViewMode()" title="Click to switch space" aria-label="Switch between Working Space (editable draft) and Master Schedule (locked official copy)">
                     🛠️ Working Space
                 </button>
+                <button class="info-dot" onclick="openHelpModal('master-working')" title="What's the difference between Working Space and Master?" aria-label="Help: Working Space vs Master Schedule">ⓘ</button>
 
                 <span class="stat-item">📚 Total: <span class="num" id="totalPeriods">0</span></span>
                 <span class="stat-item">📋 Classes: <span class="num" id="totalClasses">0</span></span>
@@ -1318,55 +1859,64 @@
                 <span class="stat-item">📖 Subjects: <span class="num" id="totalSubjects">0</span></span>
                 <span class="stat-item">⚠️ Conflicts: <span class="num danger" id="totalConflicts">0</span></span>
                 <span style="flex:1;"></span>
-                <button id="btnLockMaster" class="success" style="font-size:9.5px;padding:2px 8px;" onclick="lockCurrentAsMaster()" title="Save working schedule as the fixed master schedule">📌 Set Current as Master</button>
-                <button id="btnResetToMaster" class="danger" style="font-size:9.5px;padding:2px 8px;" onclick="resetWorkingToMaster()" title="Discard changes and revert to original master schedule">↺ Revert to Master</button>
+                <button id="btnLockMaster" class="success" style="font-size:9.5px;padding:2px 8px;" onclick="lockCurrentAsMaster()" title="Save working schedule as the fixed master schedule" aria-label="Save current working schedule as the official master schedule">📌 Set Current as Master</button>
+                <button id="btnResetToMaster" class="danger" style="font-size:9.5px;padding:2px 8px;" onclick="resetWorkingToMaster()" title="Discard changes and revert to original master schedule" aria-label="Discard all working changes and revert to the master schedule">↺ Revert to Master</button>
                 <span style="font-size:9px;color:#94a3b8;" id="lastSaved">ready</span>
             </div>
         </div>
 
+        <!-- BACKUP REMINDER BANNER -->
+        <div id="backupBanner">
+            <span>💾 It's been a while since you exported a backup. If your browser data is ever cleared, unsaved work could be lost.</span>
+            <button onclick="exportCSV(); markBackupDone();">📤 Export Backup Now</button>
+            <button class="dismiss" onclick="dismissBackupBanner()">Remind me later</button>
+        </div>
+
         <!-- TOOLBAR -->
         <div id="toolbar">
-            <button class="primary" id="btnImport">📥 Import CSV</button>
+            <button class="primary" id="btnImport" aria-label="Import timetable data from a CSV file">📥 Import CSV</button>
+            <button id="btnHelp" onclick="openHelpModal()" aria-label="Open help guide explaining every button and screen" title="Learn what every button and screen does">❓ Help</button>
 
             <!-- Export Buttons (Visible ONLY in Master Schedule mode) -->
             <div id="exportButtonGroup" class="export-btn-group hidden">
-                <button class="success" id="btnExport">📤 Export CSV</button>
-                <button class="primary" id="btnExportClassesPDF">📄 Classes PDF</button>
-                <button class="primary" id="btnExportTeachersPDF">📄 Teachers PDF</button>
+                <button class="success" id="btnExport" aria-label="Export the full timetable as a CSV file">📤 Export CSV</button>
+                <button class="primary" id="btnExportClassesPDF" aria-label="Export class-wise timetables as a PDF">📄 Classes PDF</button>
+                <button class="primary" id="btnExportTeachersPDF" aria-label="Export teacher-wise timetables as a PDF">📄 Teachers PDF</button>
             </div>
 
             <div class="sep"></div>
-            <button id="btnSettings">⚙️ Times</button>
-            <button id="btnManageClasses">📋 Classes</button>
-            <button id="btnManageSubjects">📖 Subjects</button>
-            <button id="btnManageTeachers">👨‍🏫 Teachers</button>
+            <button id="btnSettings" aria-label="Open period times and break settings">⚙️ Times</button>
+            <button id="btnManageClasses" aria-label="Add, edit, or remove classes">📋 Classes</button>
+            <button id="btnManageSubjects" aria-label="Add, edit, or remove subjects">📖 Subjects</button>
+            <button id="btnManageTeachers" aria-label="Add, edit, or remove teachers">👨‍🏫 Teachers</button>
             <div class="sep"></div>
-            <button id="btnClearAll" class="danger">🗑️ Clear Data</button>
+            <button id="btnClearAll" class="danger" aria-label="Permanently clear all data">🗑️ Clear Data</button>
             <div class="sep"></div>
             
             <!-- Undo/Redo Buttons ONLY for Working Space -->
             <div id="undoRedoGroup" style="display: flex; gap: 6px;">
-                <button id="btnUndo" title="Undo (Ctrl+Z)" disabled style="font-size:13px;padding:4px 10px;">&#8592; Undo</button>
-                <button id="btnRedo" title="Redo (Ctrl+Shift+Z)" disabled style="font-size:13px;padding:4px 10px;">Redo &#8594;</button>
+                <button id="btnUndo" title="Undo (Ctrl+Z)" aria-label="Undo last change" disabled style="font-size:13px;padding:4px 10px;">&#8592; Undo</button>
+                <button id="btnRedo" title="Redo (Ctrl+Shift+Z)" aria-label="Redo last undone change" disabled style="font-size:13px;padding:4px 10px;">Redo &#8594;</button>
             </div>
 
             <div class="sep"></div>
-            <label>Periods/day: <input type="number" id="periodsPerDay" value="7" min="4" max="10" /></label>
-            <label>Apply all days: <input type="checkbox" id="applyAllDays" /></label>
+            <label>Periods/day: <input type="number" id="periodsPerDay" value="7" min="4" max="10" aria-label="Number of periods per day" /></label>
+            <label>Apply all days: <input type="checkbox" id="applyAllDays" aria-label="Apply the same period edit to all days" /></label>
             <div class="sep"></div>
 
             <!-- Multiple Days & SUBST & DATE MODE Buttons ONLY for Working Space -->
             <div id="workingEditGroup" style="display: flex; gap: 6px; flex-wrap: wrap;">
-                <button id="btnMultipleDays" class="primary" onclick="handleMultipleDaysBtnClick()">📅 Multiple Days</button>
+                <button id="btnMultipleDays" class="primary" onclick="handleMultipleDaysBtnClick()" aria-label="Select multiple timetable cells at once to edit together">📅 Multiple Days</button>
                 <div class="subst-wrap">
-                    <button id="btnSubst" class="primary" onclick="toggleSubstMenu(event)">🔁 SUBST ▾</button>
+                    <button id="btnSubst" class="primary" onclick="toggleSubstMenu(event)" aria-label="Open substitution and exchange menu" aria-haspopup="true">🔁 Substitution ▾</button>
                     <div id="substMenu" class="subst-menu">
                         <button onclick="closeSubstMenu(); openTeacherSubModal();">🧑‍🏫 Teacher Sub</button>
                         <button onclick="closeSubstMenu(); openClassExchangeModal();">🔄 Class Sub</button>
                         <button onclick="closeSubstMenu(); openEventModal();">📌 Event</button>
                     </div>
                 </div>
-                <button id="btnDateRange" class="primary" onclick="openDateRangeModal()">📅 Date Mode</button>
+                <button class="info-dot" onclick="openHelpModal('substitution')" title="How does Teacher Sub / Class Sub / Event work?" aria-label="Help: Substitution menu">ⓘ</button>
+                <button id="btnDateRange" class="primary" onclick="openDateRangeModal()" aria-label="Switch to date-specific editing mode for exact calendar dates">📅 Date Mode</button>
             </div>
         </div>
 
@@ -1383,9 +1933,10 @@
                     <thead id="tableHead"></thead>
                     <tbody id="tableBody"></tbody>
                 </table>
+                <div id="masterElderView" style="display:none;"></div>
             </div>
             <div id="rightSidebar">
-                <button class="sidebar-toggle" id="sidebarToggle" title="Toggle sidebar">◀</button>
+                <button class="sidebar-toggle" id="sidebarToggle" title="Toggle sidebar" aria-label="Show or hide the statistics sidebar">◀</button>
                 <div class="sidebar-inner" id="sidebarInner">
                     <h4>📊 By Class</h4>
                     <div id="statsByClass"></div>
@@ -1400,7 +1951,7 @@
         <!-- BOTTOM BAR -->
         <div id="bottomBar">
             <div class="bar-inner">
-                <button class="bar-toggle" id="bottomBarToggle" title="Toggle bottom stats">▾</button>
+                <button class="bar-toggle" id="bottomBarToggle" title="Toggle bottom stats" aria-label="Show or hide the daily totals bar">▾</button>
                 <span class="stat-item">📅 Mon: <span class="num" id="dayMon">0</span></span>
                 <span class="stat-item">📅 Tue: <span class="num" id="dayTue">0</span></span>
                 <span class="stat-item">📅 Wed: <span class="num" id="dayWed">0</span></span>
@@ -1425,6 +1976,18 @@
     <!-- MODAL -->
     <div id="modalOverlay">
         <div class="modal" id="modalContent"></div>
+    </div>
+
+    <!-- CUSTOM CONFIRM DIALOG (replaces browser confirm()) -->
+    <div id="confirmOverlay" role="alertdialog" aria-modal="true" aria-labelledby="confirmTitle">
+        <div class="confirm-box">
+            <div class="confirm-title" id="confirmTitle">⚠️ Please confirm</div>
+            <div class="confirm-message" id="confirmMessage"></div>
+            <div class="confirm-actions">
+                <button id="confirmCancelBtn" type="button">Cancel</button>
+                <button id="confirmOkBtn" type="button" class="confirm-ok">OK</button>
+            </div>
+        </div>
     </div>
 
     <!-- TOAST -->
@@ -1507,6 +2070,7 @@
             substitutedCells: {},
             eventLogs: [],
             dateOverrides: {}, // NEW: Stores date-specific overrides { '2026-08-04': { '10-A': { 'P1': {subject, teacher} } } }
+            departments: [], // NEW: Managed list of departments for the Teacher Workload Register
             settings: {
                 periodsPerDay: 7,
                 periodTimes: {},
@@ -1557,6 +2121,11 @@
                 undoRedoGroup.style.display = 'none';
                 workingEditGroup.style.display = 'none';
                 resetMasterBtn.style.display = 'none'; // Remove Revert to Master
+
+                // Swap the dense editable grid for the elder-friendly lookup view
+                document.getElementById('timetable').style.display = 'none';
+                document.getElementById('masterElderView').style.display = 'block';
+                renderMasterElderView();
                 
                 showToast('Switched to Master Schedule. Edits disabled.', 'success');
             } else {
@@ -1568,24 +2137,28 @@
                 undoRedoGroup.style.display = 'flex';
                 workingEditGroup.style.display = 'flex';
                 resetMasterBtn.style.display = 'inline-block'; // Restore Revert to Master
+
+                // Restore the standard editable grid
+                document.getElementById('masterElderView').style.display = 'none';
+                document.getElementById('timetable').style.display = '';
                 
                 showToast('Switched to Working Space. Changes allowed.');
             }
         }
 
-        function lockCurrentAsMaster() {
-            if (!confirm('Set the current working schedule as the official Master Schedule?')) return;
+        async function lockCurrentAsMaster() {
+            if (!(await customConfirm('Set the current working schedule as the official Master Schedule? Everyone viewing Master Mode will see this version.'))) return;
             masterTimetable = JSON.parse(JSON.stringify(appData.timetable));
             saveData();
             showToast('Current timetable locked as Master Schedule!', 'success');
         }
 
-        function resetWorkingToMaster() {
+        async function resetWorkingToMaster() {
             if (Object.keys(masterTimetable).length === 0) {
                 showToast('No Master Schedule saved yet!', 'error');
                 return;
             }
-            if (!confirm('Revert all working changes back to the original Master Schedule?')) return;
+            if (!(await customConfirm('Revert all working changes back to the original Master Schedule? Any edits made since the last "Set as Master" will be lost.', { danger: true, okText: 'Revert' }))) return;
             appData.timetable = JSON.parse(JSON.stringify(masterTimetable));
             appData.substitutedCells = {};
             render();
@@ -1593,7 +2166,334 @@
             showToast('Working space reverted to Master Schedule');
         }
 
-        // ───────────── HELPERS ─────────────
+        // ───────────── ELDER-FRIENDLY MASTER VIEW ─────────────
+        let elderViewState = { mode: 'class', selectedKey: '' };
+
+        function renderMasterElderView() {
+            const container = document.getElementById('masterElderView');
+            if (!container) return;
+
+            const classKeys = getClassKeys().slice().sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+            const teacherIds = Object.keys(appData.teachers).sort((a, b) =>
+                (appData.teachers[a].name || '').localeCompare(appData.teachers[b].name || ''));
+
+            const options = elderViewState.mode === 'class' ?
+                classKeys.map(k => `<option value="${k}" ${k === elderViewState.selectedKey ? 'selected' : ''}>${k}</option>`).join('') :
+                teacherIds.map(id => `<option value="${id}" ${id === elderViewState.selectedKey ? 'selected' : ''}>${appData.teachers[id].name} (${id})</option>`).join('');
+
+            let html = `
+                <div class="elder-header">
+                    <div class="elder-mode-toggle">
+                        <button class="elder-mode-btn ${elderViewState.mode === 'class' ? 'active' : ''}" onclick="setElderMode('class')">🏫 By Class</button>
+                        <button class="elder-mode-btn ${elderViewState.mode === 'teacher' ? 'active' : ''}" onclick="setElderMode('teacher')">👨‍🏫 By Teacher</button>
+                    </div>
+                    <div class="elder-select-row">
+                        <label>${elderViewState.mode === 'class' ? 'Select Class:' : 'Select Teacher:'}</label>
+                        <select id="elderSelect" onchange="onElderSelectChange(this.value)">
+                            <option value="">— Choose ${elderViewState.mode === 'class' ? 'a class' : 'a teacher'} —</option>
+                            ${options}
+                        </select>
+                    </div>
+                </div>
+                <div id="elderTableArea">${buildElderTableArea()}</div>
+                <div id="teacherWorkloadSection">
+                    <div class="wl-header-row">
+                        <span class="wl-title">📋 Teacher Workload Register</span>
+                        <span class="wl-hint">Sections &amp; Total Load auto-calculated from the master timetable — click Total Load to override, assign Department per teacher, edit Extra Workload directly</span>
+                    </div>
+                    <div id="wlDeptManager">${renderDepartmentManagerHTML()}</div>
+                    <div id="teacherWorkloadArea">${renderTeacherWorkloadTableHTML()}</div>
+                </div>
+            `;
+            container.innerHTML = html;
+        }
+
+        function setElderMode(mode) {
+            elderViewState.mode = mode;
+            elderViewState.selectedKey = '';
+            renderMasterElderView();
+        }
+
+        function onElderSelectChange(value) {
+            elderViewState.selectedKey = value;
+            const area = document.getElementById('elderTableArea');
+            if (area) area.innerHTML = buildElderTableArea();
+        }
+
+        function buildElderTableArea() {
+            if (!elderViewState.selectedKey) {
+                return `<div class="elder-empty">👆 Select a ${elderViewState.mode === 'class' ? 'class' : 'teacher'} above to view the timetable.</div>`;
+            }
+            return elderViewState.mode === 'class' ?
+                buildElderClassTable(elderViewState.selectedKey) :
+                buildElderTeacherTable(elderViewState.selectedKey);
+        }
+
+        function buildElderTableShell(bannerHtml, rowsHtml) {
+            return `
+                <div class="elder-name-banner">${bannerHtml}</div>
+                <table class="elder-table">
+                    <thead><tr><th>Period</th>${DAYS.map(d => `<th>${d}</th>`).join('')}</tr></thead>
+                    <tbody>${rowsHtml}</tbody>
+                </table>
+            `;
+        }
+
+        function buildElderClassTable(classKey) {
+            const periodKeys = getAllPeriodKeys();
+            const teacherId = getClassTeacher(classKey);
+            const banner = `${classKey}` + (teacherId ?
+                `<div class="elder-sub">Class Teacher: ${getTeacherName(teacherId)}</div>` : '');
+
+            let rows = '';
+            periodKeys.forEach(p => {
+                const timeStr = getPeriodDisplay(p);
+                rows += `<tr><th>${p}${timeStr ? `<span class="elder-period-time">${timeStr}</span>` : ''}</th>`;
+                DAYS.forEach(d => {
+                    const val = getCellValue(classKey, d, p);
+                    if (val.subject && val.teacher) {
+                        rows += `<td><span class="elder-cell-subj">${getSubjectName(val.subject)}</span><span class="elder-cell-sub2">${getTeacherName(val.teacher)}</span></td>`;
+                    } else {
+                        rows += `<td class="elder-free">Free</td>`;
+                    }
+                });
+                rows += '</tr>';
+                const pNum = parseInt(p.replace('P', ''), 10);
+                getBreaksAfterPeriod(pNum).forEach(b => {
+                    rows += `<tr class="elder-break-row"><td colspan="${DAYS.length + 1}">${b.name}${b.start ? ' (' + b.start + '–' + b.end + ')' : ''}</td></tr>`;
+                });
+            });
+
+            return buildElderTableShell(banner, rows);
+        }
+
+        function buildElderTeacherTable(teacherId) {
+            const t = appData.teachers[teacherId];
+            if (!t) return '<div class="elder-empty">Teacher not found.</div>';
+            const periodKeys = getAllPeriodKeys();
+            const classKeys = getClassKeys();
+            const subjectNames = (t.subjects && t.subjects.length > 0) ?
+                t.subjects.map(code => `${getSubjectName(code)} (${code})`).join(', ') : 'Not Assigned';
+            const banner = `${t.name}<div class="elder-sub">Subject: ${subjectNames}</div>`;
+
+            let rows = '';
+            periodKeys.forEach(p => {
+                const timeStr = getPeriodDisplay(p);
+                rows += `<tr><th>${p}${timeStr ? `<span class="elder-period-time">${timeStr}</span>` : ''}</th>`;
+                DAYS.forEach(d => {
+                    const matches = classKeys
+                        .map(key => ({ key, val: getCellValue(key, d, p) }))
+                        .filter(({ val }) => val.teacher === teacherId);
+                    if (matches.length > 0) {
+                        const m = matches[0];
+                        rows += `<td><span class="elder-cell-subj">${getSubjectName(m.val.subject)}</span><span class="elder-cell-sub2">Class ${m.key}</span></td>`;
+                    } else {
+                        rows += `<td class="elder-free">Free</td>`;
+                    }
+                });
+                rows += '</tr>';
+                const pNum = parseInt(p.replace('P', ''), 10);
+                getBreaksAfterPeriod(pNum).forEach(b => {
+                    rows += `<tr class="elder-break-row"><td colspan="${DAYS.length + 1}">${b.name}${b.start ? ' (' + b.start + '–' + b.end + ')' : ''}</td></tr>`;
+                });
+            });
+
+            return buildElderTableShell(banner, rows);
+        }
+
+        // ───────────── TEACHER WORKLOAD REGISTER ─────────────
+        function escAttr(str) {
+            return String(str || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#39;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        }
+        // Alias used at display call sites for clarity — same safe-escaping as escAttr.
+        const escHTML = escAttr;
+
+        function getDepartments() {
+            if (!appData.departments) appData.departments = [];
+            // migrate any legacy free-text department values on teachers into the managed list
+            Object.keys(appData.teachers).forEach(id => {
+                const d = (appData.teachers[id].department || '').trim();
+                if (d && !appData.departments.includes(d)) appData.departments.push(d);
+            });
+            return appData.departments;
+        }
+
+        function renderDepartmentManagerHTML() {
+            const depts = getDepartments();
+            const chips = depts.map(d => `
+                <span class="wl-dept-chip">${escAttr(d)}<button title="Delete department" onclick="deleteDepartment('${escAttr(d)}')">×</button></span>
+            `).join('');
+            return `
+                <div class="wl-dept-manager">
+                    <span class="wl-dept-manager-label">Departments:</span>
+                    ${chips || '<span class="wl-hint">None yet — add one below.</span>'}
+                    <span class="wl-dept-add">
+                        <input type="text" id="newDeptInput" placeholder="New department name" onkeydown="if(event.key==='Enter'){addDepartment();}">
+                        <button onclick="addDepartment()">+ Add</button>
+                    </span>
+                </div>
+            `;
+        }
+
+        function addDepartment() {
+            const input = document.getElementById('newDeptInput');
+            if (!input) return;
+            const val = input.value.trim();
+            if (!val) return;
+            const depts = getDepartments();
+            if (depts.includes(val)) { showToast('That department already exists', 'error'); return; }
+            depts.push(val);
+            saveData();
+            refreshWorkloadSection();
+        }
+
+        async function deleteDepartment(dept) {
+            if (!(await customConfirm(`Delete department "${dept}"? Teachers currently in it will become Unassigned.`, { danger: true, okText: 'Delete' }))) return;
+            appData.departments = getDepartments().filter(d => d !== dept);
+            Object.keys(appData.teachers).forEach(id => {
+                if ((appData.teachers[id].department || '').trim() === dept) {
+                    appData.teachers[id].department = '';
+                }
+            });
+            saveData();
+            refreshWorkloadSection();
+        }
+
+        function assignTeacherDepartment(teacherId, dept) {
+            if (!appData.teachers[teacherId]) return;
+            appData.teachers[teacherId].department = dept;
+            saveData();
+            refreshTeacherWorkloadTable();
+        }
+
+        function reassignDepartmentGroup(teacherIds, dept) {
+            teacherIds.forEach(id => {
+                if (appData.teachers[id]) appData.teachers[id].department = dept;
+            });
+            saveData();
+            refreshTeacherWorkloadTable();
+        }
+
+        function computeAllTeacherWorkloads() {
+            const map = {};
+            const classKeys = getClassKeys();
+            const periodKeys = getAllPeriodKeys();
+            classKeys.forEach(ck => {
+                DAYS.forEach(d => {
+                    periodKeys.forEach(p => {
+                        const val = getCellValue(ck, d, p);
+                        if (val && val.teacher) {
+                            if (!map[val.teacher]) map[val.teacher] = { periodCount: 0, sections: new Set() };
+                            map[val.teacher].periodCount++;
+                            map[val.teacher].sections.add(ck);
+                        }
+                    });
+                });
+            });
+            return map;
+        }
+
+        function renderTeacherWorkloadTableHTML() {
+            const workloadMap = computeAllTeacherWorkloads();
+            const depts = getDepartments();
+            // Source of truth: the master Teachers list — every teacher shown here, no stray entries
+            const teacherIds = Object.keys(appData.teachers).filter(id => id !== 'EVENT');
+
+            const groups = {};
+            teacherIds.forEach(id => {
+                const dept = (appData.teachers[id].department || '').trim() || 'Unassigned';
+                if (!groups[dept]) groups[dept] = [];
+                groups[dept].push(id);
+            });
+            const deptNames = Object.keys(groups).sort((a, b) => {
+                if (a === 'Unassigned') return 1;
+                if (b === 'Unassigned') return -1;
+                return a.localeCompare(b);
+            });
+            deptNames.forEach(dept => groups[dept].sort((a, b) =>
+                (appData.teachers[a].name || '').localeCompare(appData.teachers[b].name || '')));
+
+            const deptOptionsHTML = (selected) => `<option value="" ${!selected ? 'selected' : ''}>Unassigned</option>` +
+                depts.map(d => `<option value="${escAttr(d)}" ${d === selected ? 'selected' : ''}>${escAttr(d)}</option>`).join('');
+
+            let sno = 1;
+            let rows = '';
+            deptNames.forEach(dept => {
+                const ids = groups[dept];
+                const idsListJs = ids.map(id => `'${id}'`).join(',');
+                ids.forEach((id, idx) => {
+                    const t = appData.teachers[id];
+                    const currentDept = (t.department || '').trim();
+                    const stat = workloadMap[id] || { periodCount: 0, sections: new Set() };
+                    const sectionsText = Array.from(stat.sections)
+                        .sort((a, b) => a.localeCompare(b, undefined, { numeric: true })).join(', ') || '—';
+                    const autoLoad = stat.periodCount;
+                    const hasOverride = t.workLoadOverride !== undefined && t.workLoadOverride !== null && t.workLoadOverride !== '';
+                    const effectiveLoad = hasOverride ? t.workLoadOverride : autoLoad;
+
+                    rows += `<tr>
+                        <td>${sno++}</td>
+                        ${idx === 0 ? `<td class="wl-dept-cell" rowspan="${ids.length}">
+                            <select class="wl-dept-select" onchange="reassignDepartmentGroup([${idsListJs}], this.value)">
+                                ${deptOptionsHTML(currentDept)}
+                            </select>
+                        </td>` : ''}
+                        <td class="wl-name-cell">${t.name}</td>
+                        <td class="wl-sections-cell">${sectionsText}</td>
+                        <td class="wl-load-cell">
+                            <input type="number" class="wl-load-input" min="0" value="${effectiveLoad}" title="Auto-calculated: ${autoLoad}${hasOverride ? ' (currently manually overridden)' : ''}" onchange="updateTeacherWorkloadOverride('${id}', this.value, ${autoLoad})">${hasOverride ? `<span class="wl-manual-tag" title="Manually overridden — auto value is ${autoLoad}">✎ manual</span>` : ''}
+                        </td>
+                        <td class="wl-extra-cell"><input type="text" class="wl-extra-input" value="${escAttr(t.extraWorkload || '')}" placeholder="—" onchange="updateTeacherWorkloadField('${id}','extraWorkload', this.value)"></td>
+                    </tr>`;
+                });
+            });
+
+            return `
+                <table class="workload-table">
+                    <thead>
+                        <tr>
+                            <th style="width:32px;">S.No</th>
+                            <th style="width:140px;">Department</th>
+                            <th>Teacher</th>
+                            <th>Handling Sections</th>
+                            <th style="width:100px;">Total Load</th>
+                            <th style="width:160px;">Extra Workload</th>
+                        </tr>
+                    </thead>
+                    <tbody>${rows || `<tr><td colspan="6" class="wl-empty">No teachers yet.</td></tr>`}</tbody>
+                </table>
+            `;
+        }
+
+        function refreshTeacherWorkloadTable() {
+            const area = document.getElementById('teacherWorkloadArea');
+            if (area) area.innerHTML = renderTeacherWorkloadTableHTML();
+        }
+
+        function refreshWorkloadSection() {
+            const mgr = document.getElementById('wlDeptManager');
+            if (mgr) mgr.innerHTML = renderDepartmentManagerHTML();
+            refreshTeacherWorkloadTable();
+        }
+
+        function updateTeacherWorkloadField(teacherId, field, value) {
+            if (!appData.teachers[teacherId]) return;
+            appData.teachers[teacherId][field] = value.trim();
+            saveData();
+            refreshTeacherWorkloadTable();
+        }
+
+        function updateTeacherWorkloadOverride(teacherId, value, autoValue) {
+            if (!appData.teachers[teacherId]) return;
+            const trimmed = String(value).trim();
+            if (trimmed === '' || Number(trimmed) === autoValue) {
+                appData.teachers[teacherId].workLoadOverride = null; // back to auto
+            } else {
+                appData.teachers[teacherId].workLoadOverride = Number(trimmed);
+            }
+            saveData();
+            refreshTeacherWorkloadTable();
+        }
         function getClassKey(cls, sec) { return cls + '-' + sec; }
 
 
@@ -1957,6 +2857,47 @@
             return false;
         }
 
+        // ───────────── BACKUP REMINDER ─────────────
+        // Nudges the user to export a CSV/PDF backup periodically, since all data
+        // otherwise lives only in this browser's localStorage and would be lost
+        // if the browser cache/storage is ever cleared.
+        const BACKUP_REMINDER_KEY = 'timetableApp_lastBackupAt';
+        const BACKUP_DISMISS_KEY = 'timetableApp_backupDismissedAt';
+        const BACKUP_REMINDER_DAYS = 3;
+
+        function markBackupDone() {
+            try {
+                localStorage.setItem(BACKUP_REMINDER_KEY, String(Date.now()));
+                localStorage.removeItem(BACKUP_DISMISS_KEY);
+            } catch (e) { /* ignore */ }
+            const banner = document.getElementById('backupBanner');
+            if (banner) banner.classList.remove('show');
+        }
+
+        function dismissBackupBanner() {
+            try { localStorage.setItem(BACKUP_DISMISS_KEY, String(Date.now())); } catch (e) { /* ignore */ }
+            const banner = document.getElementById('backupBanner');
+            if (banner) banner.classList.remove('show');
+        }
+
+        function checkBackupReminder() {
+            // Nothing to back up yet — no classes/subjects/teachers entered.
+            if (getClassKeys().length === 0 && Object.keys(appData.teachers).length === 0) return;
+            let lastBackup = 0, lastDismiss = 0;
+            try {
+                lastBackup = parseInt(localStorage.getItem(BACKUP_REMINDER_KEY) || '0', 10);
+                lastDismiss = parseInt(localStorage.getItem(BACKUP_DISMISS_KEY) || '0', 10);
+            } catch (e) { /* ignore */ }
+            const daysMs = BACKUP_REMINDER_DAYS * 24 * 60 * 60 * 1000;
+            const dueForReminder = (Date.now() - lastBackup) > daysMs;
+            const recentlyDismissed = (Date.now() - lastDismiss) < daysMs;
+            const banner = document.getElementById('backupBanner');
+            if (banner) banner.classList.toggle('show', dueForReminder && !recentlyDismissed);
+        }
+
+        window.markBackupDone = markBackupDone;
+        window.dismissBackupBanner = dismissBackupBanner;
+
         function clearAllData() {
             appData.classes = [];
             appData.classTeachers = {};
@@ -2206,11 +3147,11 @@
                 const teacherMin = teacherId ? getTeacherMinimal(teacherId) : '—';
                 const teacherName = teacherId ? getTeacherName(teacherId) : '';
 
-                bodyHtml += `<tr data-key="${key}">`;
-                bodyHtml += `<td class="col-class">${cls}</td>`;
-                bodyHtml += `<td class="col-section">${sec}</td>`;
+                bodyHtml += `<tr data-key="${escAttr(key)}">`;
+                bodyHtml += `<td class="col-class">${escHTML(cls)}</td>`;
+                bodyHtml += `<td class="col-section">${escHTML(sec)}</td>`;
                 bodyHtml +=
-                    `<td class="col-teacher" data-key="${key}" title="${teacherName}" style="cursor:pointer;">${teacherMin}</td>`;
+                    `<td class="col-teacher" data-key="${escAttr(key)}" title="${escAttr(teacherName)}" style="cursor:pointer;">${escHTML(teacherMin)}</td>`;
 
                 periodKeys.forEach((p, pi) => {
                     let firstCell = true;
@@ -2240,9 +3181,9 @@
                             (isEvtCell ? ' event-cell' : (conflict ? ' conflict' : '')) +
                             (selected ? ' selected-cell' : '') + (substMarked ? ' subst-marked' : '') + filterClass;
                         const titleText = filled ? `${subj} / ${getSubjectName(subj)} — ${tchr} / ${getTeacherName(tchr)}${substMarked ? ' (substituted)' : ''}` : 'empty';
-                        bodyHtml += `<td class="${clsTd}" data-key="${key}" data-day="${d}" data-period="${p}">
-                                    <div class="${contentClass}" title="${titleText}">
-                                        ${filled ? `<span class="subj">${subjMin}</span><span class="tchr">${tchrMin}</span>` : '<span style="color:#cbd5e1;font-size:11px;">·</span>'}
+                        bodyHtml += `<td class="${clsTd}" data-key="${escAttr(key)}" data-day="${escAttr(d)}" data-period="${escAttr(p)}">
+                                    <div class="${contentClass}" title="${escAttr(titleText)}">
+                                        ${filled ? `<span class="subj">${escHTML(subjMin)}</span><span class="tchr">${escHTML(tchrMin)}</span>` : '<span style="color:#cbd5e1;font-size:11px;">·</span>'}
                                     </div>
                                 </td>`;
                     });
@@ -2275,6 +3216,10 @@
 
             attachCellEvents();
             attachTeacherClickEvents();
+
+            if (viewMode === 'master') {
+                renderMasterElderView();
+            }
 
             saveData();
         }
@@ -2796,7 +3741,7 @@
                 const count = stats.byClass[key] || 0;
                 const total = getPeriodsPerDay() * DAYS.length;
                 html +=
-                    `<div class="stat-row"><span class="label">${c.class}-${c.section}</span><span class="value">${count}/${total}</span></div>`;
+                    `<div class="stat-row"><span class="label">${escHTML(c.class)}-${escHTML(c.section)}</span><span class="value">${count}/${total}</span></div>`;
             });
             container.innerHTML = html || '<div class="empty-msg">No classes</div>';
 
@@ -2809,7 +3754,7 @@
                 const activeClass = (activeTeacherFilter === t) ? ' active-filter' : '';
                 const activeLabel = (activeTeacherFilter === t) ? ' <small>(active)</small>' : '';
                 tHtml +=
-                    `<div class="stat-row teacher-filter${activeClass}" data-teacher="${t}"><span class="label">${min} ${name.slice(0,8)}${activeLabel}</span><span class="value highlight">${stats.byTeacher[t]}</span></div>`;
+                    `<div class="stat-row teacher-filter${activeClass}" data-teacher="${escAttr(t)}"><span class="label">${escHTML(min)} ${escHTML(name.slice(0,8))}${activeLabel}</span><span class="value highlight">${stats.byTeacher[t]}</span></div>`;
             });
 
             if (activeTeacherFilter) {
@@ -2848,7 +3793,7 @@
                 const name = getSubjectName(s);
                 const min = getSubjectMinimal(s);
                 sHtml +=
-                    `<div class="stat-row"><span class="label">${min} ${name.slice(0,8)}</span><span class="value highlight">${stats.bySubject[s]}</span></div>`;
+                    `<div class="stat-row"><span class="label">${escHTML(min)} ${escHTML(name.slice(0,8))}</span><span class="value highlight">${stats.bySubject[s]}</span></div>`;
             });
             subjectContainer.innerHTML = sHtml || '<div class="empty-msg">No data</div>';
         }
@@ -2874,6 +3819,312 @@
             clearTimeout(el._hide);
             el._hide = setTimeout(() => { el.className = ''; }, 2200);
         }
+
+        // ───────────── CUSTOM CONFIRM DIALOG ─────────────
+        // Promise-based replacement for the browser's native confirm() popup,
+        // styled to match the app instead of an OS dialog. Usage:
+        //   if (!(await customConfirm('Delete this?'))) return;
+        // Pass { danger: true } to make the OK button red for destructive actions.
+        function customConfirm(message, opts) {
+            opts = opts || {};
+            return new Promise(resolve => {
+                const overlay = document.getElementById('confirmOverlay');
+                const msgEl = document.getElementById('confirmMessage');
+                const titleEl = document.getElementById('confirmTitle');
+                const okBtn = document.getElementById('confirmOkBtn');
+                const cancelBtn = document.getElementById('confirmCancelBtn');
+
+                msgEl.textContent = message;
+                titleEl.textContent = opts.title || (opts.danger ? '⚠️ Please confirm' : 'Please confirm');
+                okBtn.textContent = opts.okText || (opts.danger ? 'Delete' : 'OK');
+                cancelBtn.textContent = opts.cancelText || 'Cancel';
+                okBtn.className = 'confirm-ok' + (opts.danger ? ' danger' : '');
+
+                overlay.classList.add('open');
+                okBtn.focus();
+
+                function cleanup(result) {
+                    overlay.classList.remove('open');
+                    okBtn.removeEventListener('click', onOk);
+                    cancelBtn.removeEventListener('click', onCancel);
+                    overlay.removeEventListener('keydown', onKey);
+                    resolve(result);
+                }
+                function onOk() { cleanup(true); }
+                function onCancel() { cleanup(false); }
+                function onKey(e) {
+                    if (e.key === 'Escape') onCancel();
+                    if (e.key === 'Enter') onOk();
+                }
+                okBtn.addEventListener('click', onOk);
+                cancelBtn.addEventListener('click', onCancel);
+                overlay.addEventListener('keydown', onKey);
+            });
+        }
+        window.customConfirm = customConfirm;
+
+        // ═══════════════════════════════════════════════════════════════
+        // HELP SYSTEM — in-app guide + "Copy for AI" explainer
+        // ═══════════════════════════════════════════════════════════════
+        // Each topic below powers three things at once, from one source of truth:
+        //   1. The "❓ Help" modal (accordion, searchable)
+        //   2. Small "ⓘ" info-dots that can jump straight to a topic
+        //   3. The "Copy for AI" text block a teacher can paste into any AI chat
+        const HELP_TOPICS = [
+            {
+                id: 'overview',
+                icon: '🏫',
+                title: 'What this app is for',
+                body: `This is a School Timetable Manager. It runs entirely in this browser tab — there is no
+                       server and no login. Everything you build (classes, subjects, teachers, and the timetable
+                       itself) is saved automatically to this device's local storage as you work.
+                       <ul>
+                        <li>Set up your <b>Classes</b>, <b>Subjects</b>, and <b>Teachers</b> first (toolbar buttons).</li>
+                        <li>Click any empty cell in the grid to assign a subject and teacher to that period.</li>
+                        <li>Use <b>Master vs Working Space</b> to safely draft changes before making them official.</li>
+                        <li>Export a CSV or PDF backup regularly — see "Backing up your data" below.</li>
+                       </ul>`
+            },
+            {
+                id: 'master-working',
+                icon: '🛠️',
+                title: 'Working Space vs Master Schedule',
+                body: `The button at the top-left toggles between two views of the same timetable:
+                       <ul>
+                        <li><b>🛠️ Working Space</b> — your editable draft. Make changes, try things out, use Undo/Redo freely.</li>
+                        <li><b>🔒 Master Schedule</b> — a locked, official read-only copy for printing/reference.</li>
+                       </ul>
+                       <b>📌 Set Current as Master</b> saves whatever is currently in Working Space as the new official
+                       Master Schedule — use this once a term's timetable is finalized.<br><br>
+                       <b>↺ Revert to Master</b> throws away your working changes and copies the Master Schedule back
+                       into Working Space — use this if you've made a mess and want to start over from the last
+                       official version.`
+            },
+            {
+                id: 'toolbar-setup',
+                icon: '📋',
+                title: 'Setting up Classes, Subjects, Teachers',
+                body: `Use the three toolbar buttons to manage the building blocks of the timetable:
+                       <ul>
+                        <li><b>📋 Classes</b> — add/edit/delete classes (e.g. "10-A"). You can also import a list from CSV.</li>
+                        <li><b>📖 Subjects</b> — add a short code (e.g. "MAT"), full name ("Mathematics"), and a 1–2
+                            letter "minimal" abbreviation shown in the compact grid.</li>
+                        <li><b>👨‍🏫 Teachers</b> — add teacher ID, name, minimal initials, and which subjects they teach.</li>
+                       </ul>
+                       Do these three first — the timetable grid and dropdowns won't have anything to offer until
+                       classes/subjects/teachers exist.`
+            },
+            {
+                id: 'grid-editing',
+                icon: '🗓️',
+                title: 'Editing the timetable grid',
+                body: `Click any cell in the main grid to open its editor and pick a subject and teacher for that
+                       class, day, and period. A filled cell shows two short codes: subject on top, teacher below.
+                       <ul>
+                        <li>Cells outlined in <b>red</b> mean a conflict — usually the same teacher assigned to two
+                            classes at the same time.</li>
+                        <li><b>📅 Multiple Days</b> turns on selection mode so you can click several cells and edit
+                            them all at once (e.g. assign the same subject to a class every Monday).</li>
+                        <li>Right-click a cell for Copy / Paste / Clear / Apply to all days.</li>
+                        <li>Clicking a class's <b>Teacher</b> column (left side) lets you set that class's homeroom/
+                            class-teacher.</li>
+                       </ul>`
+            },
+            {
+                id: 'undo-redo',
+                icon: '↩️',
+                title: 'Undo & Redo',
+                body: `Every edit in Working Space is remembered. Use <b>Undo (Ctrl+Z)</b> to step backward and
+                       <b>Redo (Ctrl+Shift+Z)</b> to step forward again. Up to 60 steps are kept. This is your
+                       safety net — if a substitution or bulk edit goes wrong, Undo will get you back.`
+            },
+            {
+                id: 'substitution',
+                icon: '🔁',
+                title: 'Substitution menu — Teacher Sub, Class Sub, Event',
+                body: `Click <b>🔁 Substitution</b> in the toolbar to open three tools for handling day-to-day changes:
+                       <ul>
+                        <li><b>🧑‍🏫 Teacher Sub</b> — a teacher is absent for a day. Pick the teacher and the day; the
+                            app lists every period they were due to teach and lets you assign a substitute for each,
+                            one by one.</li>
+                        <li><b>🔄 Class Sub</b> — swap two teachers' periods with each other, or have one teacher
+                            "borrow" and cover another's period, without marking anyone absent.</li>
+                        <li><b>📌 Event</b> — block out a period (or several) across a date range for something like
+                            an exam or assembly, across one class or all classes at once.</li>
+                       </ul>
+                       All three apply changes only to <b>Working Space</b>, and everything they do can be undone
+                       with Ctrl+Z. Cells changed this way get a small marker showing they were substituted.`
+            },
+            {
+                id: 'date-mode',
+                icon: '📅',
+                title: 'Date Mode (calendar-specific edits)',
+                body: `Normally the timetable repeats the same pattern every week (Monday, Tuesday, ...). <b>📅 Date
+                       Mode</b> lets you switch to real calendar dates and make an edit that applies to just one
+                       specific date — for example, "this Wednesday only" — without touching the regular weekly
+                       pattern. Turn it off again to go back to the normal recurring view.`
+            },
+            {
+                id: 'export-import',
+                icon: '📤',
+                title: 'Import & Export (CSV / PDF)',
+                body: `<ul>
+                        <li><b>📥 Import CSV</b> — bring in classes, subjects, or teachers from a spreadsheet.</li>
+                        <li><b>📤 Export CSV</b> — download the full timetable as a spreadsheet file (visible in
+                            Master Schedule mode).</li>
+                        <li><b>📄 Classes PDF / 📄 Teachers PDF</b> — printable, formatted PDF timetables, either
+                            per-class or per-teacher, that you can choose which ones to include.</li>
+                       </ul>
+                       Exporting is also how you back up your work — see the next topic.`
+            },
+            {
+                id: 'backup',
+                icon: '💾',
+                title: 'Backing up your data',
+                body: `Everything is stored only in this browser (local storage on this device). If the browser's
+                       data is ever cleared, or you open the app on a different computer, that data will not be
+                       there. <b>Export a CSV or PDF backup regularly</b> using the export buttons — this app will
+                       show a reminder banner if it's been a few days since your last export. Treat an export like
+                       saving a document: do it after any significant round of changes.`
+            },
+            {
+                id: 'settings',
+                icon: '⚙️',
+                title: 'Times & Settings',
+                body: `<b>⚙️ Times</b> opens settings for period start/end times, break periods (recess, lunch),
+                       how many periods are in a day, and whether Saturday is included in the week. Changing
+                       "Periods/day" in the toolbar reshapes the whole grid, so use it before you've filled in much
+                       of the timetable.`
+            },
+            {
+                id: 'sidebar-stats',
+                icon: '📊',
+                title: 'Sidebar & stats bars',
+                body: `The top bar shows quick totals (classes, teachers, subjects, and conflicts). The right
+                       sidebar breaks workload down by class, teacher, and subject — click a teacher's name there
+                       to filter the grid and see only their periods highlighted. The bottom bar shows how many
+                       periods are scheduled per day. All of these panels can be collapsed with the small ▾/◀
+                       arrows if you want more screen space for the grid itself.`
+            },
+            {
+                id: 'clear-data',
+                icon: '🗑️',
+                title: 'Clear Data (use with care)',
+                body: `<b>🗑️ Clear Data</b> permanently erases everything — classes, subjects, teachers, and the
+                       whole timetable — from this device. There is no way to recover it afterward unless you had
+                       already exported a backup. The app will ask you to confirm twice before doing this.`
+            }
+        ];
+
+        function _helpTopicPlainText(t) {
+            return t.title + '\n' + t.body.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+        }
+
+        function renderHelpModal(filter) {
+            filter = (filter || '').toLowerCase().trim();
+            const topics = HELP_TOPICS.filter(t =>
+                !filter || t.title.toLowerCase().includes(filter) || t.body.toLowerCase().includes(filter)
+            );
+            const list = topics.length
+                ? topics.map((t, i) => `
+                    <details class="help-topic" ${filter || i === 0 ? 'open' : ''} id="help-${t.id}">
+                        <summary>${t.icon} ${escHTML(t.title)}</summary>
+                        <div class="help-body">${t.body}</div>
+                    </details>
+                `).join('')
+                : `<div class="empty-msg">No help topics match "${escHTML(filter)}".</div>`;
+
+            return `
+                <h3>❓ Help Guide — What Every Button Does</h3>
+                <p style="font-size:11px;color:#64748b;margin-bottom:10px;">
+                    A quick reference for teachers and admins using this timetable app. Search below, or click a
+                    topic to expand it.
+                </p>
+                <input type="text" id="helpSearchBox" placeholder="Search help topics… (e.g. 'substitution', 'backup', 'master')"
+                       value="${escAttr(filter)}" oninput="renderHelpModal(this.value); document.getElementById('helpSearchBox').focus();" />
+                <div class="help-copy-row">
+                    <button class="btn-primary" onclick="copyHelpForAI()">📋 Copy Full Guide for AI Chat</button>
+                    <span style="font-size:10.5px;color:#94a3b8;align-self:center;">
+                        Paste this into ChatGPT, Claude, or any AI chat so a teacher can ask their own follow-up questions.
+                    </span>
+                </div>
+                <div id="helpTopicList">${list}</div>
+                <div class="btn-row">
+                    <button class="btn-secondary" onclick="closeModal()">Close</button>
+                </div>
+            `;
+        }
+
+        function openHelpModal(jumpToId) {
+            openModal(renderHelpModal(''), 'modal-lg');
+            if (jumpToId) {
+                setTimeout(() => {
+                    const el = document.getElementById('help-' + jumpToId);
+                    if (el) { el.setAttribute('open', ''); el.scrollIntoView({ block: 'start' }); }
+                }, 30);
+            }
+        }
+
+        function buildAIExplainerText() {
+            const header =
+`You are helping a teacher or school principal understand and use a School Timetable Manager web app.
+Answer their questions about how to use it in plain, non-technical language. Below is a full description
+of every screen and button in the app. Use it as your reference, then let the person ask follow-up
+questions freely — e.g. "how do I mark a teacher absent for 3 days?" or "why is a cell showing red?".
+
+═══════════════════════════════════
+SCHOOL TIMETABLE MANAGER — APP GUIDE
+═══════════════════════════════════
+`;
+            const body = HELP_TOPICS.map(t => `\n── ${t.icon} ${t.title} ──\n${_helpTopicPlainText(t).split('\n').slice(1).join(' ')}\n`).join('\n');
+            const footer =
+`
+
+═══════════════════════════════════
+SUGGESTED QUESTIONS TO TRY ASKING
+═══════════════════════════════════
+- How do I set up a substitute for a teacher who is absent tomorrow?
+- What's the difference between Working Space and Master Schedule, and when should I lock a Master?
+- How do I schedule a half-day for exams across all classes on a specific date?
+- Why might a timetable cell be showing as a conflict?
+- How often should I export a backup, and how do I do it?
+- How do I move a class or add a new section partway through the term?
+`;
+            return header + body + footer;
+        }
+
+        function copyHelpForAI() {
+            const text = buildAIExplainerText();
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(() => {
+                    showToast('Guide copied — paste it into any AI chat', 'success');
+                }).catch(() => {
+                    _fallbackCopyText(text);
+                });
+            } else {
+                _fallbackCopyText(text);
+            }
+        }
+
+        function _fallbackCopyText(text) {
+            try {
+                const ta = document.createElement('textarea');
+                ta.value = text;
+                ta.style.position = 'fixed';
+                ta.style.opacity = '0';
+                document.body.appendChild(ta);
+                ta.select();
+                document.execCommand('copy');
+                document.body.removeChild(ta);
+                showToast('Guide copied — paste it into any AI chat', 'success');
+            } catch (e) {
+                showToast('Could not copy automatically — please select and copy manually', 'error');
+            }
+        }
+
+        window.openHelpModal = openHelpModal;
+        window.renderHelpModal = renderHelpModal;
+        window.copyHelpForAI = copyHelpForAI;
 
         // ───────────── MODAL HELPERS ─────────────
         function openModal(html, extraClass) {
@@ -3120,6 +4371,7 @@
                 });
             });
             downloadCSVRaw('timetable_export_' + Date.now() + '.csv', rows);
+            markBackupDone();
             showToast('Exported successfully');
         }
 
@@ -3320,7 +4572,7 @@
             });
 
             doc.save('classes_timetable_' + Date.now() + '.pdf');
-            showToast('Classes PDF downloaded');
+            markBackupDone(); showToast('Classes PDF downloaded');
         }
 
         // ── UPDATED: SELECT TEACHERS FOR PDF ──
@@ -3392,6 +4644,12 @@
                 doc.setFont(undefined, 'bold');
                 doc.text(`Teacher: ${t.name}` + (homeroomClasses.length ? '   (Class Teacher: ' + homeroomClasses.join(', ') + ')' : ''), 14, 24);
 
+                const subjectNames = (t.subjects && t.subjects.length > 0) ?
+                    t.subjects.map(code => `${getSubjectName(code)} (${code})`).join(', ') : 'Not Assigned';
+                doc.setFontSize(10);
+                doc.setFont(undefined, 'normal');
+                doc.text(`Subject: ${subjectNames}`, 14, 30);
+
                 const body = DAYS.map(d => {
                     const row = [d];
                     periodKeys.forEach(p => {
@@ -3409,7 +4667,7 @@
                 doc.autoTable({
                     head,
                     body,
-                    startY: 28,
+                    startY: 34,
                     styles: { fontSize: 7.5, cellPadding: 1.5, halign: 'center', valign: 'middle', lineColor: [203, 213, 225], lineWidth: 0.1 },
                     headStyles: { fillColor: [22, 163, 74], textColor: 255, fontStyle: 'bold', fontSize: 7.5 },
                     columnStyles: { 0: { fontStyle: 'bold', fillColor: [241, 245, 249], cellWidth: 26 } },
@@ -3428,7 +4686,7 @@
             });
 
             doc.save('teachers_timetable_' + Date.now() + '.pdf');
-            showToast('Teachers PDF downloaded');
+            markBackupDone(); showToast('Teachers PDF downloaded');
         }
 
         // ───────────── SETTINGS (period times) ─────────────
@@ -3594,17 +4852,17 @@
                     const teacherId = getClassTeacher(key);
                     const teacherName = teacherId ? getTeacherName(teacherId) : '—';
                     html += `
-                                <div class="item" data-class="${c.class}" data-section="${c.section}" data-idx="${idx}">
+                                <div class="item" data-class="${escAttr(c.class)}" data-section="${escAttr(c.section)}" data-idx="${idx}">
                                     <div class="info">
-                                        <span class="code">${c.class}</span>
-                                        <span class="name">${c.section}</span>
-                                        <span class="meta">👨‍🏫 ${teacherName}</span>
+                                        <span class="code">${escHTML(c.class)}</span>
+                                        <span class="name">${escHTML(c.section)}</span>
+                                        <span class="meta">👨‍🏫 ${escHTML(teacherName)}</span>
                                     </div>
                                     <div class="actions">
                                         <button onclick="moveClassFromModal(${idx}, -1)" title="Move Up" ${idx === 0 ? 'disabled style="opacity:0.3;cursor:default;"' : ''}>▲</button>
                                         <button onclick="moveClassFromModal(${idx}, 1)" title="Move Down" ${idx === classList.length - 1 ? 'disabled style="opacity:0.3;cursor:default;"' : ''}>▼</button>
-                                        <button onclick="editClassFromModal('${c.class}','${c.section}')" title="Edit">✏️</button>
-                                        <button class="del" onclick="deleteClassFromModal('${c.class}','${c.section}')" title="Delete">✕</button>
+                                        <button onclick="editClassFromModal('${escAttr(c.class)}','${escAttr(c.section)}')" title="Edit">✏️</button>
+                                        <button class="del" onclick="deleteClassFromModal('${escAttr(c.class)}','${escAttr(c.section)}')" title="Delete">✕</button>
                                     </div>
                                 </div>
                             `;
@@ -3648,8 +4906,8 @@
             manageClasses();
         }
 
-        function deleteClassFromModal(cls, sec) {
-            if (!confirm('Delete class ' + cls + '-' + sec + '? This will remove all timetable data for this class.')) return;
+        async function deleteClassFromModal(cls, sec) {
+            if (!(await customConfirm('Delete class ' + cls + '-' + sec + '? This will remove all timetable data for this class.', { danger: true, okText: 'Delete' }))) return;
             removeClass(cls, sec);
             closeModal();
             render();
@@ -3665,24 +4923,24 @@
                         <h3>✏️ Edit Class</h3>
                         <div class="edit-form">
                             <div class="form-row">
-                                <div><label>Class</label><input type="text" id="editClass" value="${cls}" /></div>
-                                <div><label>Section</label><input type="text" id="editSection" value="${sec}" /></div>
+                                <div><label>Class</label><input type="text" id="editClass" value="${escAttr(cls)}" /></div>
+                                <div><label>Section</label><input type="text" id="editSection" value="${escAttr(sec)}" /></div>
                             </div>
                             <div style="margin-top:4px;font-size:10px;color:#94a3b8;">
-                                Current teacher: ${teacherId ? getTeacherName(teacherId) : '—'}
+                                Current teacher: ${teacherId ? escHTML(getTeacherName(teacherId)) : '—'}
                                 (change via main table)
                             </div>
                             <div class="btn-row">
                                 <button class="btn-cancel" onclick="closeModal()">Cancel</button>
-                                <button class="btn-danger" onclick="deleteClassFromModal('${cls}','${sec}')">Delete</button>
-                                <button class="btn-save" onclick="saveClassEdit('${cls}','${sec}')">Save</button>
+                                <button class="btn-danger" onclick="deleteClassFromModal('${escAttr(cls)}','${escAttr(sec)}')">Delete</button>
+                                <button class="btn-save" onclick="saveClassEdit('${escAttr(cls)}','${escAttr(sec)}')">Save</button>
                             </div>
                         </div>
                     `;
             openModal(html);
         }
 
-        function saveClassEdit(oldCls, oldSec) {
+        async function saveClassEdit(oldCls, oldSec) {
             const newCls = document.getElementById('editClass').value.trim();
             const newSec = document.getElementById('editSection').value.trim();
             if (!newCls || !newSec) { showToast('Class and section required', 'error'); return; }
@@ -3694,8 +4952,8 @@
                 showToast('Class already exists', 'error');
                 return;
             }
-            if (!confirm('Changing class from ' + oldCls + '-' + oldSec + ' to ' + newCls + '-' + newSec +
-                    '. Timetable data will be moved.')) return;
+            if (!(await customConfirm('Changing class from ' + oldCls + '-' + oldSec + ' to ' + newCls + '-' + newSec +
+                    '. Timetable data will be moved.'))) return;
             if (updateClass(oldCls, oldSec, newCls, newSec)) {
                 closeModal();
                 render();
@@ -3718,9 +4976,9 @@
                 manageClasses(); }, 300);
         }
 
-        function clearClassesFromModal() {
-            if (!confirm('Remove ALL classes? This will delete all timetable data.')) return;
-            if (!confirm('Are you sure?')) return;
+        async function clearClassesFromModal() {
+            if (!(await customConfirm('Remove ALL classes? This will delete all timetable data for every class.', { danger: true, okText: 'Remove All' }))) return;
+            if (!(await customConfirm('This cannot be undone. Are you absolutely sure?', { danger: true, okText: 'Yes, Remove All' }))) return;
             appData.classes = [];
             appData.classTeachers = {};
             appData.timetable = {};
@@ -3760,13 +5018,13 @@
                     html += `
                                 <div class="item">
                                     <div class="info">
-                                        <span class="code">${k}</span>
-                                        <span class="name">${s.name}</span>
-                                        <span class="meta">min: ${s.minimalCode}</span>
+                                        <span class="code">${escHTML(k)}</span>
+                                        <span class="name">${escHTML(s.name)}</span>
+                                        <span class="meta">min: ${escHTML(s.minimalCode)}</span>
                                     </div>
                                     <div class="actions">
-                                        <button onclick="editSubjectFromModal('${k}')" title="Edit">✏️</button>
-                                        <button class="del" onclick="deleteSubjectFromModal('${k}')" title="Delete">✕</button>
+                                        <button onclick="editSubjectFromModal('${escAttr(k)}')" title="Edit">✏️</button>
+                                        <button class="del" onclick="deleteSubjectFromModal('${escAttr(k)}')" title="Delete">✕</button>
                                     </div>
                                 </div>
                             `;
@@ -3797,8 +5055,8 @@
             manageSubjects();
         }
 
-        function deleteSubjectFromModal(code) {
-            if (!confirm('Delete subject ' + code + '?')) return;
+        async function deleteSubjectFromModal(code) {
+            if (!(await customConfirm('Delete subject ' + code + '? It will be removed from every timetable cell that uses it.', { danger: true, okText: 'Delete' }))) return;
             delete appData.subjects[code];
             getClassKeys().forEach(c => {
                 DAYS.forEach(d => {
@@ -3826,14 +5084,14 @@
                         <h3>✏️ Edit Subject</h3>
                         <div class="edit-form">
                             <div class="form-row">
-                                <div><label>Code</label><input type="text" id="editSubjCode" value="${code}" disabled style="background:#f1f5f9;" /></div>
-                                <div><label>Name</label><input type="text" id="editSubjName" value="${s.name}" /></div>
-                                <div><label>Minimal</label><input type="text" id="editSubjMin" value="${s.minimalCode}" /></div>
+                                <div><label>Code</label><input type="text" id="editSubjCode" value="${escAttr(code)}" disabled style="background:#f1f5f9;" /></div>
+                                <div><label>Name</label><input type="text" id="editSubjName" value="${escAttr(s.name)}" /></div>
+                                <div><label>Minimal</label><input type="text" id="editSubjMin" value="${escAttr(s.minimalCode)}" /></div>
                             </div>
                             <div class="btn-row">
                                 <button class="btn-cancel" onclick="closeModal()">Cancel</button>
-                                <button class="btn-danger" onclick="deleteSubjectFromModal('${code}')">Delete</button>
-                                <button class="btn-save" onclick="saveSubjectEdit('${code}')">Save</button>
+                                <button class="btn-danger" onclick="deleteSubjectFromModal('${escAttr(code)}')">Delete</button>
+                                <button class="btn-save" onclick="saveSubjectEdit('${escAttr(code)}')">Save</button>
                             </div>
                         </div>
                     `;
@@ -3866,8 +5124,8 @@
                 manageSubjects(); }, 300);
         }
 
-        function clearSubjectsFromModal() {
-            if (!confirm('Remove ALL subjects?')) return;
+        async function clearSubjectsFromModal() {
+            if (!(await customConfirm('Remove ALL subjects? This will clear every timetable cell that uses one.', { danger: true, okText: 'Remove All' }))) return;
             appData.subjects = {};
             getClassKeys().forEach(c => {
                 DAYS.forEach(d => {
@@ -3914,13 +5172,13 @@
                     html += `
                                 <div class="item">
                                     <div class="info">
-                                        <span class="code">${k}</span>
-                                        <span class="name">${t.name}</span>
-                                        <span class="meta">min: ${t.minimalId} | Subj: ${subs}</span>
+                                        <span class="code">${escHTML(k)}</span>
+                                        <span class="name">${escHTML(t.name)}</span>
+                                        <span class="meta">min: ${escHTML(t.minimalId)} | Subj: ${escHTML(subs)}</span>
                                     </div>
                                     <div class="actions">
-                                        <button onclick="editTeacherFromModal('${k}')" title="Edit">✏️</button>
-                                        <button class="del" onclick="deleteTeacherFromModal('${k}')" title="Delete">✕</button>
+                                        <button onclick="editTeacherFromModal('${escAttr(k)}')" title="Edit">✏️</button>
+                                        <button class="del" onclick="deleteTeacherFromModal('${escAttr(k)}')" title="Delete">✕</button>
                                     </div>
                                 </div>
                             `;
@@ -3951,8 +5209,8 @@
             manageTeachers();
         }
 
-        function deleteTeacherFromModal(id) {
-            if (!confirm('Delete teacher ' + id + '?')) return;
+        async function deleteTeacherFromModal(id) {
+            if (!(await customConfirm('Delete teacher ' + id + '? They will be removed from every class and timetable slot they are assigned to.', { danger: true, okText: 'Delete' }))) return;
             if (activeTeacherFilter === id) activeTeacherFilter = null;
             delete appData.teachers[id];
             getClassKeys().forEach(c => {
@@ -3990,8 +5248,8 @@
                     const checked = currentSubs.includes(code) ? 'checked' : '';
                     subjCheckboxes += `
                                 <label class="subj-check-item">
-                                    <input type="checkbox" value="${code}" ${checked} />
-                                    <span><strong>${code}</strong> - ${appData.subjects[code].name}</span>
+                                    <input type="checkbox" value="${escAttr(code)}" ${checked} />
+                                    <span><strong>${escHTML(code)}</strong> - ${escHTML(appData.subjects[code].name)}</span>
                                 </label>
                             `;
                 });
@@ -4000,9 +5258,9 @@
                         <h3>✏️ Edit Teacher</h3>
                         <div class="edit-form">
                             <div class="form-row">
-                                <div><label>ID</label><input type="text" id="editTchrId" value="${id}" disabled style="background:#f1f5f9;" /></div>
-                                <div><label>Name</label><input type="text" id="editTchrName" value="${t.name}" /></div>
-                                <div><label>Minimal</label><input type="text" id="editTchrMin" value="${t.minimalId}" /></div>
+                                <div><label>ID</label><input type="text" id="editTchrId" value="${escAttr(id)}" disabled style="background:#f1f5f9;" /></div>
+                                <div><label>Name</label><input type="text" id="editTchrName" value="${escAttr(t.name)}" /></div>
+                                <div><label>Minimal</label><input type="text" id="editTchrMin" value="${escAttr(t.minimalId)}" /></div>
                             </div>
                             <div style="margin-top:6px;">
                                 <label style="display:block;margin-bottom:3px;font-weight:600;color:#334155;">Subjects (select one or more)</label>
@@ -4012,8 +5270,8 @@
                             </div>
                             <div class="btn-row">
                                 <button class="btn-cancel" onclick="closeModal()">Cancel</button>
-                                <button class="btn-danger" onclick="deleteTeacherFromModal('${id}')">Delete</button>
-                                <button class="btn-save" onclick="saveTeacherEdit('${id}')">Save</button>
+                                <button class="btn-danger" onclick="deleteTeacherFromModal('${escAttr(id)}')">Delete</button>
+                                <button class="btn-save" onclick="saveTeacherEdit('${escAttr(id)}')">Save</button>
                             </div>
                         </div>
                     `;
@@ -4050,8 +5308,8 @@
                 manageTeachers(); }, 300);
         }
 
-        function clearTeachersFromModal() {
-            if (!confirm('Remove ALL teachers?')) return;
+        async function clearTeachersFromModal() {
+            if (!(await customConfirm('Remove ALL teachers? This will clear every timetable cell that has a teacher assigned.', { danger: true, okText: 'Remove All' }))) return;
             appData.teachers = {};
             appData.classTeachers = {};
             activeTeacherFilter = null;
@@ -4357,9 +5615,9 @@ FILES GENERATED: Confirmation of the 4 downloadable .csv files.`;
         document.getElementById('btnManageSubjects').addEventListener('click', manageSubjects);
         document.getElementById('btnManageTeachers').addEventListener('click', manageTeachers);
 
-        document.getElementById('btnClearAll').addEventListener('click', function() {
-            if (!confirm('⚠️ Clear ALL data (classes, subjects, teachers, timetable) from local storage?')) return;
-            if (!confirm('This cannot be undone. Are you sure?')) return;
+        document.getElementById('btnClearAll').addEventListener('click', async function() {
+            if (!(await customConfirm('⚠️ Clear ALL data (classes, subjects, teachers, timetable) from this device? Consider exporting a backup first.', { danger: true, okText: 'Continue' }))) return;
+            if (!(await customConfirm('This cannot be undone. Are you absolutely sure you want to erase everything?', { danger: true, okText: 'Yes, Clear Everything' }))) return;
             undoStack = []; redoStack = []; _updateUndoUI();
             clearAllData();
         });
@@ -4380,7 +5638,9 @@ FILES GENERATED: Confirmation of the 4 downloadable .csv files.`;
             updateViewModeUI();
             render();
             saveData();
+            checkBackupReminder();
             setInterval(() => { saveData(); }, 30000);
+            setInterval(checkBackupReminder, 60 * 60 * 1000);
         }
 
         document.addEventListener('DOMContentLoaded', init);
@@ -4597,6 +5857,12 @@ FILES GENERATED: Confirmation of the 4 downloadable .csv files.`;
             });
         }
 
+        function substGetFreePeriodCount(teacherId, day) {
+            const totalPeriods = getAllPeriodKeys().length;
+            const occupied = substGetTeacherPeriodsForDay(teacherId, day).length;
+            return Math.max(totalPeriods - occupied, 0);
+        }
+
         function substWouldConflict(teacherId, day, period, excludeClassKey) {
             if (!teacherId) return false;
             return !substIsTeacherFreeAt(teacherId, day, period, excludeClassKey);
@@ -4667,8 +5933,8 @@ FILES GENERATED: Confirmation of the 4 downloadable .csv files.`;
                             <div class="subst-teacher-list">
                                 ${teacherIds.length === 0 ? '<div class="empty-msg">No teachers added yet.</div>' : teacherIds.map(id => `
                                     <label class="subst-check-item">
-                                        <input type="checkbox" value="${id}" ${teacherSubState.absentIds.includes(id) ? 'checked' : ''} onchange="onAbsentToggle('${id}', this.checked)" />
-                                        <span>${appData.teachers[id].name} (${id})</span>
+                                        <input type="checkbox" value="${escAttr(id)}" ${teacherSubState.absentIds.includes(id) ? 'checked' : ''} onchange="onAbsentToggle('${escAttr(id)}', this.checked)" />
+                                        <span>${escHTML(appData.teachers[id].name)} (${escHTML(id)})</span>
                                     </label>
                                 `).join('')}
                             </div>
@@ -4739,7 +6005,7 @@ FILES GENERATED: Confirmation of the 4 downloadable .csv files.`;
                             <td>
                                 <select onchange="onSubChange('${slotKey}', this.value)">
                                     <option value="">— none —</option>
-                                    ${available.map(id => `<option value="${id}" ${id === current ? 'selected' : ''}>${appData.teachers[id].name}</option>`).join('')}
+                                    ${available.map(id => `<option value="${id}" ${id === current ? 'selected' : ''}>${appData.teachers[id].name} — ${substGetFreePeriodCount(id, teacherSubState.day)} free</option>`).join('')}
                                 </select>
                                 ${available.length === 0 ? '<div style="color:#dc2626;font-size:9px;">No free teacher</div>' : ''}
                             </td>
@@ -4791,11 +6057,11 @@ FILES GENERATED: Confirmation of the 4 downloadable .csv files.`;
             return html;
         }
 
-        function applyTeacherSubChanges() {
+        async function applyTeacherSubChanges() {
             const slots = substGetCoverageSlots();
             const assigned = slots.filter(s => teacherSubState.subs[s.classKey + '|' + s.period]);
             if (assigned.length === 0) { showToast('Choose at least one substitute before applying', 'error'); return; }
-            if (!confirm(`Apply ${assigned.length} substitution(s) to the working timetable for ${teacherSubState.day}?`)) return;
+            if (!(await customConfirm(`Apply ${assigned.length} substitution(s) to the working timetable for ${teacherSubState.day}?`))) return;
             beginTransaction();
             assigned.forEach(s => {
                 const subId = teacherSubState.subs[s.classKey + '|' + s.period];
@@ -4809,6 +6075,29 @@ FILES GENERATED: Confirmation of the 4 downloadable .csv files.`;
             renderTeacherSubModal();
         }
 
+        function drawFormalPdfHeader(doc, title, subtitle) {
+            const pageWidth = doc.internal.pageSize.getWidth();
+            let y = 14;
+            doc.setFontSize(16);
+            doc.setFont(undefined, 'bold');
+            doc.text(title, pageWidth / 2, y, { align: 'center' });
+            y += 6;
+            if (subtitle) {
+                doc.setFontSize(11);
+                doc.setFont(undefined, 'normal');
+                doc.text(subtitle, pageWidth / 2, y, { align: 'center' });
+                y += 5;
+            }
+            doc.setFontSize(8.5);
+            doc.setTextColor(120);
+            doc.text('Generated: ' + new Date().toLocaleString(), pageWidth / 2, y, { align: 'center' });
+            doc.setTextColor(0);
+            y += 3;
+            doc.setDrawColor(180);
+            doc.line(14, y, pageWidth - 14, y);
+            return y + 5; // Y position where the content below should start
+        }
+
         function exportTeacherSubCSV() {
             const slots = substGetCoverageSlots();
             if (slots.length === 0) { showToast('Nothing to export', 'error'); return; }
@@ -4816,47 +6105,58 @@ FILES GENERATED: Confirmation of the 4 downloadable .csv files.`;
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF({ orientation: 'landscape', unit: 'mm', format: 'a4' });
             const day = teacherSubState.day;
-            
-            doc.setFontSize(11);
-            doc.setFont(undefined, 'bold');
-            doc.text('Teacher Substitution Report', 14, 12);
-            doc.setFontSize(9);
-            doc.setFont(undefined, 'normal');
-            doc.text('Generated: ' + new Date().toLocaleString(), 14, 16);
-            
-            doc.setFontSize(13);
-            doc.setFont(undefined, 'bold');
-            doc.text('Teacher Substitution — ' + day, 14, 24);
 
-            const substHead = [['Period', 'Class', 'Subject', 'Absent Teacher', 'Substitute', 'Status']];
-            const substBody = slots.map(s => {
-                const slotKey = s.classKey + '|' + s.period;
-                const subId = teacherSubState.subs[slotKey] || '';
-                return [
-                    s.period,
-                    s.classKey,
-                    getSubjectName(s.subject),
-                    getTeacherName(s.absentTeacher),
-                    subId ? getTeacherName(subId) : '—',
-                    subId ? 'Covered' : 'Unfilled'
-                ];
+            let y = drawFormalPdfHeader(doc, 'TEACHER SUBSTITUTION NOTICE', 'Day: ' + day);
+
+            // ── Group slots by absent teacher (contiguous) so column 1 can be row-merged ──
+            const grouped = {};
+            const teacherOrder = [];
+            slots.forEach(s => {
+                if (!grouped[s.absentTeacher]) { grouped[s.absentTeacher] = []; teacherOrder.push(s.absentTeacher); }
+                grouped[s.absentTeacher].push(s);
+            });
+            teacherOrder.sort((a, b) => getTeacherName(a).localeCompare(getTeacherName(b)));
+            teacherOrder.forEach(tId => grouped[tId].sort((a, b) =>
+                (parseInt(a.period.slice(1), 10) - parseInt(b.period.slice(1), 10)) || a.classKey.localeCompare(b.classKey)));
+
+            const noteMap = {}; // classKey|day|period -> "Teacher → Sub" or "Teacher (unfilled)", used later by both the draft preview grid and weekly pages
+            const substHead = [['Absent Teacher (Subject)', 'Periods', 'Classes', 'Substitute Teacher & Status']];
+            const substBody = [];
+            teacherOrder.forEach(tId => {
+                const teacherSlots = grouped[tId];
+                const subjectLabel = teacherSlots[0] && teacherSlots[0].subject ? getSubjectName(teacherSlots[0].subject) : '';
+                const teacherLabel = getTeacherName(tId) + (subjectLabel ? ' (' + subjectLabel + ')' : '');
+                teacherSlots.forEach((s, idx) => {
+                    const slotKey = s.classKey + '|' + s.period;
+                    const subId = teacherSubState.subs[slotKey] || '';
+                    const statusText = subId ? (getTeacherName(subId) + ' — Covered') : '— Unfilled';
+                    noteMap[s.classKey + '|' + day + '|' + s.period] = subId ?
+                        (getTeacherName(s.absentTeacher) + ' → ' + getTeacherName(subId)) :
+                        (getTeacherName(s.absentTeacher) + ' (unfilled)');
+                    const row = [];
+                    if (idx === 0) {
+                        row.push({ content: teacherLabel, rowSpan: teacherSlots.length, styles: { valign: 'middle', fontStyle: 'bold', halign: 'left' } });
+                    }
+                    row.push(s.period, s.classKey, statusText);
+                    substBody.push(row);
+                });
             });
 
             doc.autoTable({
                 head: substHead,
                 body: substBody,
-                startY: 28,
+                startY: y,
                 styles: { fontSize: 8, cellPadding: 2, halign: 'center', valign: 'middle', lineColor: [203, 213, 225], lineWidth: 0.1 },
                 headStyles: { fillColor: [37, 99, 235], textColor: 255, fontStyle: 'bold' },
-                columnStyles: { 4: { fontStyle: 'bold' } },
+                columnStyles: { 0: { cellWidth: 55 } },
                 margin: { left: 10, right: 10 },
                 didParseCell: function(data) {
-                    if (data.section === 'body' && data.column.index === 5) {
-                        if (data.cell.raw === 'Covered') {
+                    if (data.section === 'body' && data.column.index === 3) {
+                        if (String(data.cell.raw).includes('Covered')) {
                             data.cell.styles.fillColor = [220, 252, 231];
                             data.cell.styles.textColor = [22, 101, 52];
                             data.cell.styles.fontStyle = 'bold';
-                        } else if (data.cell.raw === 'Unfilled') {
+                        } else if (String(data.cell.raw).includes('Unfilled')) {
                             data.cell.styles.fillColor = [254, 226, 226];
                             data.cell.styles.textColor = [153, 27, 27];
                             data.cell.styles.fontStyle = 'bold';
@@ -4865,24 +6165,71 @@ FILES GENERATED: Confirmation of the 4 downloadable .csv files.`;
                 }
             });
 
-            const affectedClassKeys = [...new Set(slots.map(s => s.classKey))].sort();
-            const noteMap = {};
-            slots.forEach(s => {
-                const slotKey = s.classKey + '|' + s.period;
-                const subId = teacherSubState.subs[slotKey] || '';
-                noteMap[s.classKey + '|' + day + '|' + s.period] = subId ?
-                    (getTeacherName(s.absentTeacher) + ' → ' + getTeacherName(subId)) :
-                    (getTeacherName(s.absentTeacher) + ' (unfilled)');
+            // ── Draft Preview grid — affected classes only, this day, appended below the summary table ──
+            const affectedClassKeys = [...new Set(slots.map(s => s.classKey))].sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+            const periodKeys = getAllPeriodKeys();
+            const previewHead = buildPeriodHead();
+            previewHead[0] = 'Class';
+
+            const previewBody = affectedClassKeys.map(ck => {
+                const row = [ck];
+                periodKeys.forEach(p => {
+                    const val = getCellValue(ck, day, p);
+                    const pNum = parseInt(p.replace('P', ''), 10);
+                    getBreaksAfterPeriod(pNum).forEach(b => row.push(b.name));
+                    const note = noteMap[ck + '|' + day + '|' + p];
+                    let cellText = formatClassCell(val);
+                    if (note) {
+                        const subjName = val.subject ? getSubjectName(val.subject) : '';
+                        cellText = (subjName ? subjName + '\n' : '') + note;
+                    }
+                    row.push(cellText);
+                });
+                return row;
             });
 
-            const periodKeys = getAllPeriodKeys();
-            const head = [buildPeriodHead()];
+            let previewY = (doc.lastAutoTable ? doc.lastAutoTable.finalY : y) + 10;
+            doc.setFontSize(11);
+            doc.setFont(undefined, 'bold');
+            doc.text('Draft Preview — ' + day + ' (Affected Classes)', doc.internal.pageSize.getWidth() / 2, previewY, { align: 'center' });
+            previewY += 4;
 
+            doc.autoTable({
+                head: [previewHead],
+                body: previewBody,
+                startY: previewY,
+                styles: { fontSize: 7, cellPadding: 1.5, halign: 'center', valign: 'middle', lineColor: [203, 213, 225], lineWidth: 0.1 },
+                headStyles: { fillColor: [37, 99, 235], textColor: 255, fontStyle: 'bold', fontSize: 7 },
+                columnStyles: { 0: { fontStyle: 'bold', fillColor: [241, 245, 249], cellWidth: 26 } },
+                margin: { left: 10, right: 10 },
+                didParseCell: function(data) {
+                    if (data.section === 'body' && isBreakCellText(data.cell.raw)) {
+                        data.cell.styles.fillColor = [254, 243, 199];
+                        data.cell.styles.textColor = [146, 64, 14];
+                        data.cell.styles.fontStyle = 'bold';
+                    } else if (data.section === 'body' && data.column.index > 0) {
+                        const note = noteMap[affectedClassKeys[data.row.index] + '|' + day + '|' + periodKeys[data.column.index - 1]];
+                        if (note) {
+                            if (note.includes('unfilled')) {
+                                data.cell.styles.fillColor = [254, 226, 226];
+                                data.cell.styles.textColor = [153, 27, 27];
+                            } else {
+                                data.cell.styles.fillColor = [220, 252, 231];
+                                data.cell.styles.textColor = [22, 101, 52];
+                            }
+                            data.cell.styles.fontStyle = 'bold';
+                        }
+                    } else if (data.section === 'head' && isBreakCellText(data.cell.raw)) {
+                        data.cell.styles.fillColor = [251, 191, 36];
+                        data.cell.styles.textColor = [92, 40, 4];
+                    }
+                }
+            });
+
+            // ── Full weekly preview, one page per affected class ──
             affectedClassKeys.forEach(ck => {
                 doc.addPage();
-                doc.setFontSize(11);
-                doc.setFont(undefined, 'bold');
-                doc.text('Class: ' + ck + ' — Substitution Preview (' + day + ')', 14, 12);
+                const cy = drawFormalPdfHeader(doc, 'Class: ' + ck + ' — Substitution Preview', 'Week View (' + day + ' highlighted)');
 
                 const body = DAYS.map(d => {
                     const row = [d];
@@ -4900,9 +6247,9 @@ FILES GENERATED: Confirmation of the 4 downloadable .csv files.`;
                 });
 
                 doc.autoTable({
-                    head,
+                    head: [buildPeriodHead()],
                     body,
-                    startY: 16,
+                    startY: cy,
                     styles: { fontSize: 7, cellPadding: 1.5, halign: 'center', valign: 'middle', lineColor: [203, 213, 225], lineWidth: 0.1 },
                     headStyles: { fillColor: [37, 99, 235], textColor: 255, fontStyle: 'bold', fontSize: 7 },
                     columnStyles: { 0: { fontStyle: 'bold', fillColor: [241, 245, 249], cellWidth: 26 } },
@@ -5012,7 +6359,7 @@ FILES GENERATED: Confirmation of the 4 downloadable .csv files.`;
             renderClassExchangeModal();
         }
 
-        function doClassExchangeAction(type) {
+        async function doClassExchangeAction(type) {
             const pAraw = document.getElementById('cePeriodA').value;
             const pBraw = document.getElementById('cePeriodB').value;
             const day = classExState.day;
@@ -5024,9 +6371,9 @@ FILES GENERATED: Confirmation of the 4 downloadable .csv files.`;
                 const valA = Object.assign({}, getCellValue(classA, day, periodA));
                 const valB = Object.assign({}, getCellValue(classB, day, periodB));
                 if (substWouldConflict(valB.teacher, day, periodA, classA) &&
-                    !confirm(`${getTeacherName(valB.teacher)} already has a class at ${periodA} on ${day}. Proceed anyway?`)) return;
+                    !(await customConfirm(`${getTeacherName(valB.teacher)} already has a class at ${periodA} on ${day}. Proceed anyway?`))) return;
                 if (substWouldConflict(valA.teacher, day, periodB, classB) &&
-                    !confirm(`${getTeacherName(valA.teacher)} already has a class at ${periodB} on ${day}. Proceed anyway?`)) return;
+                    !(await customConfirm(`${getTeacherName(valA.teacher)} already has a class at ${periodB} on ${day}. Proceed anyway?`))) return;
                 beginTransaction();
                 setCellValue(classA, day, periodA, valB.subject, valB.teacher);
                 setCellValue(classB, day, periodB, valA.subject, valA.teacher);
@@ -5042,7 +6389,7 @@ FILES GENERATED: Confirmation of the 4 downloadable .csv files.`;
                 const [classB, periodB] = pBraw.split('|');
                 const valB = Object.assign({}, getCellValue(classB, day, periodB));
                 if (substWouldConflict(classExState.teacherA, day, periodB, classB) &&
-                    !confirm(`${getTeacherName(classExState.teacherA)} already has a class at ${periodB} on ${day}. Proceed anyway?`)) return;
+                    !(await customConfirm(`${getTeacherName(classExState.teacherA)} already has a class at ${periodB} on ${day}. Proceed anyway?`))) return;
                 beginTransaction();
                 setCellValue(classB, day, periodB, valB.subject, classExState.teacherA);
                 endTransaction();
@@ -5212,8 +6559,8 @@ FILES GENERATED: Confirmation of the 4 downloadable .csv files.`;
             return html;
         }
 
-        function deleteEventLog(index) {
-            if (!confirm('Remove this event from the record? (Note: timetable cells already changed can be reverted using Undo)')) return;
+        async function deleteEventLog(index) {
+            if (!(await customConfirm('Remove this event from the record? (Note: timetable cells already changed can be reverted using Undo)', { danger: true, okText: 'Remove' }))) return;
             appData.eventLogs.splice(index, 1);
             saveData();
             renderEventModal();
@@ -5234,7 +6581,7 @@ FILES GENERATED: Confirmation of the 4 downloadable .csv files.`;
             else eventState.classKeys = eventState.classKeys.filter(x => x !== key);
         }
 
-        function applyEventBlock() {
+        async function applyEventBlock() {
             const name = document.getElementById('evName').value.trim();
             if (!name) { showToast('Enter an event name', 'error'); return; }
             const startVal = document.getElementById('evStartDate').value;
@@ -5251,7 +6598,7 @@ FILES GENERATED: Confirmation of the 4 downloadable .csv files.`;
             const targetClasses = eventState.applyToAll ? getClassKeys() : eventState.classKeys;
             if (targetClasses.length === 0) { showToast('Select at least one class', 'error'); return; }
             const slotCount = targetClasses.length * selectedDays.length * eventState.periods.length;
-            if (!confirm(`Apply "${name}" (${dateRangeStr}) to ${slotCount} timetable slot(s)?`)) return;
+            if (!(await customConfirm(`Apply "${name}" (${dateRangeStr}) to ${slotCount} timetable slot(s)?`))) return;
 
             const code = 'EVT_' + name.toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 10) + '_' + Date.now().toString(36).slice(-4);
             appData.subjects[code] = { name: name, minimalCode: name.replace(/[^A-Za-z]/g, '').slice(0, 2).toUpperCase() || 'EV' };
@@ -5298,12 +6645,7 @@ FILES GENERATED: Confirmation of the 4 downloadable .csv files.`;
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF({ orientation: 'landscape', unit: 'mm', format: 'a4' });
 
-            doc.setFontSize(14);
-            doc.setFont(undefined, 'bold');
-            doc.text('📌 Event & Period Block Schedule Report', 14, 12);
-            doc.setFontSize(9);
-            doc.setFont(undefined, 'normal');
-            doc.text('Generated: ' + new Date().toLocaleString(), 14, 17);
+            const y = drawFormalPdfHeader(doc, 'EVENT & PERIOD BLOCK NOTICE', null);
 
             const head = [['#', 'Event Name', 'Date Range (DD/MM/YYYY)', 'Days Affected', 'Periods', 'Classes Affected']];
             const body = logs.map((item, idx) => [
@@ -5318,7 +6660,7 @@ FILES GENERATED: Confirmation of the 4 downloadable .csv files.`;
             doc.autoTable({
                 head: head,
                 body: body,
-                startY: 21,
+                startY: y,
                 styles: { fontSize: 8, cellPadding: 2, halign: 'center', valign: 'middle', lineColor: [203, 213, 225], lineWidth: 0.1 },
                 headStyles: { fillColor: [22, 101, 52], textColor: 255, fontStyle: 'bold' },
                 columnStyles: { 1: { fontStyle: 'bold', halign: 'left' } },
@@ -5331,6 +6673,15 @@ FILES GENERATED: Confirmation of the 4 downloadable .csv files.`;
 
         // Expose functions globally
         window.toggleViewMode = toggleViewMode;
+        window.renderMasterElderView = renderMasterElderView;
+        window.setElderMode = setElderMode;
+        window.onElderSelectChange = onElderSelectChange;
+        window.updateTeacherWorkloadField = updateTeacherWorkloadField;
+        window.updateTeacherWorkloadOverride = updateTeacherWorkloadOverride;
+        window.assignTeacherDepartment = assignTeacherDepartment;
+        window.reassignDepartmentGroup = reassignDepartmentGroup;
+        window.addDepartment = addDepartment;
+        window.deleteDepartment = deleteDepartment;
         window.lockCurrentAsMaster = lockCurrentAsMaster;
         window.resetWorkingToMaster = resetWorkingToMaster;
         window.closeModal = closeModal;
