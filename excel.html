@@ -18,6 +18,42 @@
             margin: 0;
             padding: 0;
         }
+
+        /* ───────────── GRID ZOOM / DENSITY VARIABLES ─────────────
+           Controlled by a class on #tableWrap (zoom-compact / zoom-comfortable / zoom-large),
+           set via the 🔍 size control in the top bar. "Comfortable" is the default —
+           noticeably easier to read than the old fixed 28px columns without needing to
+           scroll horizontally much more. */
+        #tableWrap {
+            --w-period: 34px;
+            --w-break: 38px;
+            --w-event: 40px;
+            --row-h: 30px;
+            --grid-font: 11px;
+            --cell-font: 9px;
+            --subj-font: 9.5px;
+            --tchr-font: 7.5px;
+        }
+        #tableWrap.zoom-compact {
+            --w-period: 27px;
+            --w-break: 32px;
+            --w-event: 34px;
+            --row-h: 26px;
+            --grid-font: 10px;
+            --cell-font: 7.5px;
+            --subj-font: 8px;
+            --tchr-font: 6.5px;
+        }
+        #tableWrap.zoom-large {
+            --w-period: 46px;
+            --w-break: 48px;
+            --w-event: 52px;
+            --row-h: 36px;
+            --grid-font: 12.5px;
+            --cell-font: 10.5px;
+            --subj-font: 11.5px;
+            --tchr-font: 9px;
+        }
         html,
         body {
             height: 100%;
@@ -157,6 +193,15 @@
         #toolbar button.danger:hover {
             background: #b91c1c;
         }
+        #toolbar button.calendar-export {
+            background: #7c3aed;
+            border-color: #7c3aed;
+            color: #fff;
+            font-weight: 700;
+        }
+        #toolbar button.calendar-export:hover {
+            background: #6d28d9;
+        }
         #toolbar .sep {
             width: 1px;
             height: 20px;
@@ -254,10 +299,10 @@
         }
         #tableWrap table {
             border-collapse: collapse;
-            width: 100%;
-            min-width: 1000px;
+            width: auto;
+            min-width: 100%;
             table-layout: fixed;
-            font-size: 10px;
+            font-size: var(--grid-font);
             border: 1px solid #dbe0e7;
             background: #ffffff;
             border-radius: 6px;
@@ -270,9 +315,9 @@
             padding: 2px 3px;
             text-align: center;
             vertical-align: middle;
-            height: 28px;
-            min-height: 28px;
-            max-height: 28px;
+            height: var(--row-h);
+            min-height: var(--row-h);
+            max-height: var(--row-h);
             overflow: hidden;
             white-space: nowrap;
             position: relative;
@@ -323,9 +368,9 @@
             background: #eef2ff;
         }
         #tableWrap .col-period {
-            width: 28px;
-            min-width: 26px;
-            max-width: 30px;
+            width: 30px;
+            min-width: 28px;
+            max-width: 32px;
         }
         #tableWrap .col-break {
             width: 34px;
@@ -351,37 +396,9 @@
             font-weight: 400;
             color: #92400e;
         }
-        #tableWrap .col-event {
-            width: 36px;
-            min-width: 32px;
-            max-width: 44px;
-            background: #dcfce7 !important;
-            color: #166534;
-            font-weight: 700;
-            font-size: 9px;
-            text-align: center;
-            vertical-align: middle;
-            border-left: 2px solid #4ade80 !important;
-            border-right: 2px solid #4ade80 !important;
-            padding: 4px 2px;
-        }
-        #tableWrap th.col-event {
-            writing-mode: vertical-rl;
-            text-orientation: mixed;
-        }
-        #tableWrap th.col-event .period-time {
-            display: block;
-            font-size: 7px;
-            font-weight: 400;
-            color: #166534;
-        }
-        #tableWrap td.col-event.period-group-sep,
-        #tableWrap th.col-event.period-group-sep {
-            border-left: 2.5px solid #94a3b8 !important;
-        }
         #tableWrap .col-period .cell-content {
-            font-size: 8px;
-            line-height: 1.15;
+            font-size: 8.5px;
+            line-height: 1.2;
             cursor: pointer;
             border-radius: 2px;
             padding: 1px 2px;
@@ -391,18 +408,18 @@
             align-items: center;
             justify-content: center;
             height: 100%;
-            min-height: 22px;
+            min-height: 24px;
         }
         #tableWrap .col-period .cell-content .subj {
             font-weight: 700;
             color: #0f172a;
-            font-size: 8.5px;
+            font-size: 9px;
         }
         #tableWrap .col-period .cell-content .tchr {
             font-weight: 400;
             color: #475569;
-            font-size: 7px;
-            opacity: 0.8;
+            font-size: 7.5px;
+            opacity: 0.85;
         }
         #tableWrap .col-period .cell-content.empty {
             color: #cbd5e1;
@@ -457,6 +474,48 @@
         #tableWrap .col-period .cell-content.event-cell .subj {
             color: #166534 !important;
             font-weight: 700;
+        }
+
+        /* ───────────── COMFORTABLE VIEW (zoom toggle) ─────────────
+           Toggled via the View ▾ menu (General option). Widens every grid column and bumps up
+           font sizes so the timetable can be read without squinting — at
+           the cost of needing more horizontal scrolling. */
+        #tableWrap.comfortable-zoom .col-period {
+            width: 54px;
+            min-width: 52px;
+            max-width: 58px;
+        }
+        #tableWrap.comfortable-zoom .col-break {
+            width: 46px;
+            min-width: 44px;
+            max-width: 52px;
+            font-size: 10.5px;
+        }
+        #tableWrap.comfortable-zoom .col-period .cell-content {
+            font-size: 12px;
+            min-height: 34px;
+            padding: 2px 3px;
+        }
+        #tableWrap.comfortable-zoom .col-period .cell-content .subj {
+            font-size: 13px;
+        }
+        #tableWrap.comfortable-zoom .col-period .cell-content .tchr {
+            font-size: 10.5px;
+        }
+        #tableWrap.comfortable-zoom th,
+        #tableWrap.comfortable-zoom td {
+            font-size: 11.5px;
+        }
+        #tableWrap.comfortable-zoom .col-teacher {
+            width: 60px;
+            min-width: 60px;
+            max-width: 60px;
+            font-size: 11px;
+        }
+        #btnViewToggle.active {
+            background: #dbeafe;
+            border-color: #93c5fd;
+            color: #1d4ed8;
         }
 
         /* ───────────── ELDER-FRIENDLY MASTER VIEW ───────────── */
@@ -547,6 +606,92 @@
             color: #475569;
             margin-top: 2px;
         }
+        .detail-picker-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+        .detail-picker-header label {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1e293b;
+        }
+        .detail-picker-actions {
+            display: flex;
+            gap: 6px;
+        }
+        .dp-mini-btn {
+            font-size: 10.5px;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 5px;
+            border: 1px solid #cbd5e1;
+            background: #f8fafc;
+            color: #334155;
+            cursor: pointer;
+        }
+        .dp-mini-btn:hover {
+            background: #eef2ff;
+            border-color: #94a3b8;
+        }
+        .detail-picker-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 6px;
+            max-height: 180px;
+            overflow-y: auto;
+            padding: 8px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            background: #f8fafc;
+        }
+        .detail-check-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: #1e293b;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 5px 8px;
+            cursor: pointer;
+            user-select: none;
+        }
+        .detail-check-item:hover {
+            border-color: #94a3b8;
+        }
+        .detail-check-item input {
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        .detail-tabs-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+        .detail-tab-btn {
+            font-size: 12px;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 999px;
+            border: 1.5px solid #cbd5e1;
+            background: #ffffff;
+            color: #334155;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .detail-tab-btn:hover {
+            border-color: #93c5fd;
+        }
+        .detail-tab-btn.active {
+            background: #2563eb;
+            border-color: #2563eb;
+            color: #fff;
+        }
         table.elder-table {
             width: 100%;
             border-collapse: collapse;
@@ -597,6 +742,24 @@
             color: #475569;
             display: block;
             margin-top: 1px;
+        }
+        table.elder-table td.elder-cell-editable,
+        table.elder-table td.detail-free-cell {
+            cursor: pointer;
+            transition: background 0.12s, box-shadow 0.12s;
+        }
+        table.elder-table td.elder-cell-editable:hover {
+            background: #eff6ff !important;
+            box-shadow: inset 0 0 0 2px #93c5fd;
+        }
+        table.elder-table td.detail-free-cell:hover {
+            background: #f0fdf4 !important;
+            box-shadow: inset 0 0 0 2px #86efac;
+        }
+        .detail-view-hint {
+            font-size: 10.5px;
+            color: #64748b;
+            margin-left: 10px;
         }
         table.elder-table td.elder-free {
             color: #94a3b8;
@@ -734,6 +897,19 @@
             font-weight: 600;
             color: #0f172a;
         }
+        table.workload-table .wl-name-text {
+            white-space: nowrap;
+        }
+        table.workload-table .wl-name-clickable {
+            cursor: pointer;
+            border-bottom: 1px dashed #cbd5e1;
+            padding-bottom: 1px;
+            transition: color 0.12s, border-color 0.12s;
+        }
+        table.workload-table .wl-name-clickable:hover {
+            color: #2563eb;
+            border-bottom-color: #2563eb;
+        }
         table.workload-table td.wl-sections-cell {
             text-align: left;
             color: #475569;
@@ -743,21 +919,40 @@
             background: #eef2ff;
             vertical-align: middle;
         }
-        table.workload-table .wl-dept-select {
+        table.workload-table .wl-dept-label {
+            display: block;
             width: 100%;
-            border: none;
-            background: transparent;
             text-align: center;
             font-weight: 700;
             font-size: 11.5px;
             color: #3730a3;
             padding: 4px 2px;
-            border-radius: 4px;
-            cursor: pointer;
         }
-        table.workload-table .wl-dept-select:focus {
-            outline: none;
-            background: #e0e7ff;
+        /* Teacher quick-info popup (opened by clicking a teacher's name) */
+        .ti-info-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin: 10px 0 14px;
+            padding: 10px 12px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+        }
+        .ti-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            font-size: 11.5px;
+        }
+        .ti-row .ti-label {
+            color: #64748b;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .ti-row .ti-value {
+            color: #0f172a;
+            text-align: right;
         }
         table.workload-table .wl-extra-input {
             width: 100%;
@@ -840,6 +1035,13 @@
         }
         #rightSidebar.collapsed {
             width: 28px !important;
+        }
+        /* BUG FIX: shrinking the container to 28px with overflow:hidden still let
+           text fragments "peek" through (first few characters of every stat row
+           got sliced off mid-word instead of fully hidden). Hide the inner content
+           outright when collapsed so the rail is clean, and re-show it when not. */
+        #rightSidebar.collapsed .sidebar-inner {
+            display: none;
         }
         #rightSidebar .sidebar-toggle {
             background: none;
@@ -1184,25 +1386,6 @@
             gap: 8px;
             margin-bottom: 14px;
             flex-wrap: wrap;
-        }
-        .info-dot {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            background: #e0e7ff;
-            color: #4338ca;
-            font-size: 10px;
-            font-weight: 800;
-            cursor: pointer;
-            border: none;
-            margin-left: 4px;
-            vertical-align: middle;
-        }
-        .info-dot:hover {
-            background: #c7d2fe;
         }
         #backupBanner {
             display: none;
@@ -1851,7 +2034,6 @@
                 <button id="btnModeToggle" class="mode-toggle-btn working" onclick="toggleViewMode()" title="Click to switch space" aria-label="Switch between Working Space (editable draft) and Master Schedule (locked official copy)">
                     🛠️ Working Space
                 </button>
-                <button class="info-dot" onclick="openHelpModal('master-working')" title="What's the difference between Working Space and Master?" aria-label="Help: Working Space vs Master Schedule">ⓘ</button>
 
                 <span class="stat-item">📚 Total: <span class="num" id="totalPeriods">0</span></span>
                 <span class="stat-item">📋 Classes: <span class="num" id="totalClasses">0</span></span>
@@ -1882,6 +2064,7 @@
                 <button class="success" id="btnExport" aria-label="Export the full timetable as a CSV file">📤 Export CSV</button>
                 <button class="primary" id="btnExportClassesPDF" aria-label="Export class-wise timetables as a PDF">📄 Classes PDF</button>
                 <button class="primary" id="btnExportTeachersPDF" aria-label="Export teacher-wise timetables as a PDF">📄 Teachers PDF</button>
+                <button class="calendar-export" onclick="openCalendarExportModal()" aria-label="Export class or teacher timetables as a calendar file to import into a phone calendar app" title="Download a calendar file for one or more classes/teachers — import it on a phone for automatic reminders">📆 Calendar (.ics)</button>
             </div>
 
             <div class="sep"></div>
@@ -1915,8 +2098,15 @@
                         <button onclick="closeSubstMenu(); openEventModal();">📌 Event</button>
                     </div>
                 </div>
-                <button class="info-dot" onclick="openHelpModal('substitution')" title="How does Teacher Sub / Class Sub / Event work?" aria-label="Help: Substitution menu">ⓘ</button>
                 <button id="btnDateRange" class="primary" onclick="openDateRangeModal()" aria-label="Switch to date-specific editing mode for exact calendar dates">📅 Date Mode</button>
+                <div class="subst-wrap">
+                    <button id="btnViewToggle" onclick="toggleViewMenu(event)" title="Choose how the timetable is displayed: Compact, General, or Detailed (per-teacher, editable)" aria-label="Open view options menu" aria-haspopup="true">🔍 View: General ▾</button>
+                    <div id="viewMenu" class="subst-menu">
+                        <button onclick="closeViewMenu(); setGridViewMode('compact');">🔍 Compact View</button>
+                        <button onclick="closeViewMenu(); setGridViewMode('general');">🔍 General View</button>
+                        <button onclick="closeViewMenu(); setGridViewMode('detailed');">👨‍🏫 Detailed View</button>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -1930,10 +2120,12 @@
         <div id="mainArea">
             <div id="tableWrap">
                 <table id="timetable">
+                    <colgroup id="tableColgroup"></colgroup>
                     <thead id="tableHead"></thead>
                     <tbody id="tableBody"></tbody>
                 </table>
                 <div id="masterElderView" style="display:none;"></div>
+                <div id="detailedTeacherView" style="display:none;"></div>
             </div>
             <div id="rightSidebar">
                 <button class="sidebar-toggle" id="sidebarToggle" title="Toggle sidebar" aria-label="Show or hide the statistics sidebar">◀</button>
@@ -2138,10 +2330,10 @@
                 workingEditGroup.style.display = 'flex';
                 resetMasterBtn.style.display = 'inline-block'; // Restore Revert to Master
 
-                // Restore the standard editable grid
+                // Restore the standard editable grid (or the active grid view mode, e.g. Detailed View)
                 document.getElementById('masterElderView').style.display = 'none';
-                document.getElementById('timetable').style.display = '';
-                
+                setGridViewMode(gridViewMode, true);
+
                 showToast('Switched to Working Space. Changes allowed.');
             }
         }
@@ -2301,6 +2493,247 @@
             return buildElderTableShell(banner, rows);
         }
 
+        // ───────────── DETAILED VIEW (editable, by class or by teacher, multi-select with tabs) ─────────────
+        let detailedViewState = { mode: 'teacher', selectedKeys: [], activeKey: '' };
+
+        function renderDetailedTeacherView() {
+            const container = document.getElementById('detailedTeacherView');
+            if (!container) return;
+            const validKeys = detailedViewState.mode === 'class' ?
+                getClassKeys() : Object.keys(appData.teachers).filter(id => id !== 'EVENT');
+            detailedViewState.selectedKeys = detailedViewState.selectedKeys.filter(k => validKeys.includes(k));
+
+            container.innerHTML = `
+                <div class="elder-header">
+                    <div class="elder-mode-toggle">
+                        <button class="elder-mode-btn ${detailedViewState.mode === 'class' ? 'active' : ''}" onclick="setDetailedMode('class')">🏫 By Class</button>
+                        <button class="elder-mode-btn ${detailedViewState.mode === 'teacher' ? 'active' : ''}" onclick="setDetailedMode('teacher')">👨‍🏫 By Teacher</button>
+                    </div>
+                    <div class="detail-picker-header">
+                        <label>${detailedViewState.mode === 'class' ? 'Select Class(es):' : 'Select Teacher(s):'}</label>
+                        <div class="detail-picker-actions">
+                            <button type="button" class="dp-mini-btn" onclick="setAllDetailedCheckboxes(true)">Select All</button>
+                            <button type="button" class="dp-mini-btn" onclick="setAllDetailedCheckboxes(false)">Clear</button>
+                        </div>
+                    </div>
+                    <div id="detailedPickerList" class="detail-picker-list">${buildDetailedPickerListHTML()}</div>
+                </div>
+                <div id="detailedTabsArea">${buildDetailedTabsArea()}</div>
+            `;
+            attachDetailedViewCellEvents();
+        }
+
+        function buildDetailedPickerListHTML() {
+            if (detailedViewState.mode === 'class') {
+                const classKeys = getClassKeys().slice().sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+                if (classKeys.length === 0) return '<div class="elder-empty" style="padding:14px;">No classes yet.</div>';
+                return classKeys.map(k =>
+                    `<label class="detail-check-item"><input type="checkbox" class="detail-picker-checkbox" value="${escAttr(k)}" ${detailedViewState.selectedKeys.includes(k) ? 'checked' : ''} onchange="onDetailedCheckboxChange()"><span>${escHTML(k)}</span></label>`
+                ).join('');
+            }
+            const teacherIds = Object.keys(appData.teachers).filter(id => id !== 'EVENT')
+                .sort((a, b) => (appData.teachers[a].name || '').localeCompare(appData.teachers[b].name || ''));
+            if (teacherIds.length === 0) return '<div class="elder-empty" style="padding:14px;">No teachers yet.</div>';
+            return teacherIds.map(id =>
+                `<label class="detail-check-item"><input type="checkbox" class="detail-picker-checkbox" value="${escAttr(id)}" ${detailedViewState.selectedKeys.includes(id) ? 'checked' : ''} onchange="onDetailedCheckboxChange()"><span>${escHTML(appData.teachers[id].name)} (${escHTML(id)})</span></label>`
+            ).join('');
+        }
+
+        function setDetailedMode(mode) {
+            if (detailedViewState.mode === mode) return;
+            detailedViewState.mode = mode;
+            detailedViewState.selectedKeys = [];
+            detailedViewState.activeKey = '';
+            renderDetailedTeacherView();
+        }
+
+        function onDetailedCheckboxChange() {
+            detailedViewState.selectedKeys = Array.from(
+                document.querySelectorAll('#detailedTeacherView .detail-picker-checkbox:checked')
+            ).map(cb => cb.value);
+            const tabsArea = document.getElementById('detailedTabsArea');
+            if (tabsArea) tabsArea.innerHTML = buildDetailedTabsArea();
+            attachDetailedViewCellEvents();
+        }
+
+        function setAllDetailedCheckboxes(checked) {
+            document.querySelectorAll('#detailedTeacherView .detail-picker-checkbox').forEach(cb => { cb.checked = checked; });
+            onDetailedCheckboxChange();
+        }
+
+        function buildDetailedTabsArea() {
+            const keys = detailedViewState.selectedKeys;
+            const mode = detailedViewState.mode;
+            if (keys.length === 0) {
+                return `<div class="elder-empty">👆 Select one or more ${mode === 'class' ? 'classes' : 'teachers'} above to view and edit ${mode === 'class' ? 'their' : 'their'} timetable.</div>`;
+            }
+            if (!keys.includes(detailedViewState.activeKey)) detailedViewState.activeKey = keys[0];
+
+            const labelFor = (k) => mode === 'class' ? k : (appData.teachers[k] ? appData.teachers[k].name : k);
+            const tabsHtml = keys.map(k =>
+                `<button class="detail-tab-btn ${k === detailedViewState.activeKey ? 'active' : ''}" onclick="setDetailedActiveTab('${escAttr(k)}')">${escHTML(labelFor(k))}</button>`
+            ).join('');
+            const contentHtml = mode === 'class' ?
+                buildDetailedClassEditableTable(detailedViewState.activeKey) :
+                buildDetailedTeacherEditableTable(detailedViewState.activeKey);
+
+            return `
+                <div class="detail-tabs-row">${tabsHtml}</div>
+                <div id="detailedActiveTableArea">${contentHtml}</div>
+            `;
+        }
+
+        function setDetailedActiveTab(key) {
+            detailedViewState.activeKey = key;
+            const area = document.getElementById('detailedTabsArea');
+            if (area) area.innerHTML = buildDetailedTabsArea();
+            attachDetailedViewCellEvents();
+        }
+
+        function buildDetailedClassEditableTable(classKey) {
+            const periodKeys = getAllPeriodKeys();
+            const teacherId = getClassTeacher(classKey);
+            const banner = `${escHTML(classKey)}` + (teacherId ?
+                `<div class="elder-sub">Class Teacher: ${escHTML(getTeacherName(teacherId))}</div>` : '');
+
+            let rows = '';
+            periodKeys.forEach(p => {
+                const timeStr = getPeriodDisplay(p);
+                rows += `<tr><th>${p}${timeStr ? `<span class="elder-period-time">${timeStr}</span>` : ''}</th>`;
+                DAYS.forEach(d => {
+                    const val = getCellValue(classKey, d, p);
+                    if (val.subject && val.teacher) {
+                        rows += `<td class="elder-cell-editable" data-key="${escAttr(classKey)}" data-day="${escAttr(d)}" data-period="${escAttr(p)}" title="Click to edit"><div class="cell-content"><span class="elder-cell-subj">${escHTML(getSubjectName(val.subject))}</span><span class="elder-cell-sub2">${escHTML(getTeacherName(val.teacher))}</span></div></td>`;
+                    } else {
+                        rows += `<td class="elder-free elder-cell-editable" data-key="${escAttr(classKey)}" data-day="${escAttr(d)}" data-period="${escAttr(p)}" title="Click to assign"><div class="cell-content">Free</div></td>`;
+                    }
+                });
+                rows += '</tr>';
+                const pNum = parseInt(p.replace('P', ''), 10);
+                getBreaksAfterPeriod(pNum).forEach(b => {
+                    rows += `<tr class="elder-break-row"><td colspan="${DAYS.length + 1}">${b.name}${b.start ? ' (' + b.start + '–' + b.end + ')' : ''}</td></tr>`;
+                });
+            });
+
+            return `
+                <div class="elder-name-banner">${banner}</div>
+                <table class="elder-table">
+                    <thead><tr><th>Period</th>${DAYS.map(d => `<th>${d}</th>`).join('')}</tr></thead>
+                    <tbody>${rows}</tbody>
+                </table>
+            `;
+        }
+
+        function buildDetailedTeacherEditableTable(teacherId) {
+            const t = appData.teachers[teacherId];
+            if (!t) return '<div class="elder-empty">Teacher not found.</div>';
+            const periodKeys = getAllPeriodKeys();
+            const classKeys = getClassKeys();
+            const subjectNames = (t.subjects && t.subjects.length > 0) ?
+                t.subjects.map(code => `${getSubjectName(code)} (${code})`).join(', ') : 'Not Assigned';
+            const banner = `${escHTML(t.name)}<div class="elder-sub">Subject: ${escHTML(subjectNames)}</div>`;
+
+            let rows = '';
+            periodKeys.forEach(p => {
+                const timeStr = getPeriodDisplay(p);
+                rows += `<tr><th>${p}${timeStr ? `<span class="elder-period-time">${timeStr}</span>` : ''}</th>`;
+                DAYS.forEach(d => {
+                    const matches = classKeys
+                        .map(key => ({ key, val: getCellValue(key, d, p) }))
+                        .filter(({ val }) => val.teacher === teacherId);
+                    if (matches.length > 0) {
+                        const m = matches[0];
+                        rows += `<td class="elder-cell-editable" data-key="${escAttr(m.key)}" data-day="${escAttr(d)}" data-period="${escAttr(p)}" title="Click to edit"><div class="cell-content"><span class="elder-cell-subj">${escHTML(getSubjectName(m.val.subject))}</span><span class="elder-cell-sub2">Class ${escHTML(m.key)}</span></div></td>`;
+                    } else {
+                        rows += `<td class="elder-free detail-free-cell" data-teacher="${escAttr(teacherId)}" data-day="${escAttr(d)}" data-period="${escAttr(p)}" title="Click to assign"><div class="cell-content">Free</div></td>`;
+                    }
+                });
+                rows += '</tr>';
+                const pNum = parseInt(p.replace('P', ''), 10);
+                getBreaksAfterPeriod(pNum).forEach(b => {
+                    rows += `<tr class="elder-break-row"><td colspan="${DAYS.length + 1}">${b.name}${b.start ? ' (' + b.start + '–' + b.end + ')' : ''}</td></tr>`;
+                });
+            });
+
+            return `
+                <div class="elder-name-banner">${banner}</div>
+                <table class="elder-table">
+                    <thead><tr><th>Period</th>${DAYS.map(d => `<th>${d}</th>`).join('')}</tr></thead>
+                    <tbody>${rows}</tbody>
+                </table>
+            `;
+        }
+
+        function attachDetailedViewCellEvents() {
+            document.querySelectorAll('#detailedTeacherView td.elder-cell-editable[data-key]').forEach(td => {
+                td.addEventListener('click', function(e) {
+                    if (viewMode === 'master') return;
+                    if (e.target.closest('.cell-editor')) return;
+                    const key = this.dataset.key, day = this.dataset.day, period = this.dataset.period;
+                    if (!key || !day || !period) return;
+                    startEditing(key, day, period, this);
+                });
+            });
+            document.querySelectorAll('#detailedTeacherView td.detail-free-cell').forEach(td => {
+                td.addEventListener('click', function() {
+                    if (viewMode === 'master') return;
+                    const teacherId = this.dataset.teacher, day = this.dataset.day, period = this.dataset.period;
+                    if (!teacherId || !day || !period) return;
+                    openDetailedFreeSlotAssign(teacherId, day, period);
+                });
+            });
+        }
+
+        function openDetailedFreeSlotAssign(teacherId, day, period) {
+            const t = appData.teachers[teacherId];
+            if (!t) return;
+            const classKeys = getClassKeys().slice().sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+            if (classKeys.length === 0) {
+                showToast('No classes yet. Add classes via the 📋 Classes button.', 'error');
+                return;
+            }
+            const subs = Array.isArray(t.subjects) ? t.subjects : [];
+            const subjOptions = subs.map(s =>
+                `<option value="${escAttr(s)}">${escHTML(getSubjectName(s))} (${escHTML(getSubjectMinimal(s))})</option>`
+            ).join('');
+
+            const html = `
+                <h3>➕ Assign ${escHTML(t.name)}</h3>
+                <p style="font-size:11px;color:#475569;margin-bottom:8px;">${escHTML(day)} • ${escHTML(period)}</p>
+                <label>Class</label>
+                <select id="detailAssignClass">${classKeys.map(k => `<option value="${escAttr(k)}">${escAttr(k)}</option>`).join('')}</select>
+                ${subs.length > 0 ? `<label>Subject</label><select id="detailAssignSubject">${subjOptions}</select>` :
+                    `<p style="font-size:11px;color:#dc2626;margin-top:8px;">This teacher has no subjects assigned — add one via 👨‍🏫 Teachers first.</p>`}
+                <div class="btn-row">
+                    <button class="btn-secondary" onclick="closeModal()">Cancel</button>
+                    ${subs.length > 0 ? `<button class="btn-primary" onclick="applyDetailedFreeSlotAssign('${escAttr(teacherId)}','${escAttr(day)}','${escAttr(period)}')">Assign</button>` : ''}
+                </div>
+            `;
+            openModal(html);
+        }
+
+        function applyDetailedFreeSlotAssign(teacherId, day, period) {
+            const classSel = document.getElementById('detailAssignClass');
+            const subjSel = document.getElementById('detailAssignSubject');
+            const classKey = classSel ? classSel.value : '';
+            const subject = subjSel ? subjSel.value : '';
+            if (!classKey || !subject) {
+                showToast('Pick a class and subject first', 'error');
+                return;
+            }
+            setCellValue(classKey, day, period, subject, teacherId);
+            closeModal();
+            render();
+            showToast('Assigned ' + classKey);
+        }
+
+        window.setDetailedMode = setDetailedMode;
+        window.onDetailedCheckboxChange = onDetailedCheckboxChange;
+        window.setAllDetailedCheckboxes = setAllDetailedCheckboxes;
+        window.setDetailedActiveTab = setDetailedActiveTab;
+        window.openDetailedFreeSlotAssign = openDetailedFreeSlotAssign;
+        window.applyDetailedFreeSlotAssign = applyDetailedFreeSlotAssign;
+
         // ───────────── TEACHER WORKLOAD REGISTER ─────────────
         function escAttr(str) {
             return String(str || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#39;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -2413,17 +2846,12 @@
             deptNames.forEach(dept => groups[dept].sort((a, b) =>
                 (appData.teachers[a].name || '').localeCompare(appData.teachers[b].name || '')));
 
-            const deptOptionsHTML = (selected) => `<option value="" ${!selected ? 'selected' : ''}>Unassigned</option>` +
-                depts.map(d => `<option value="${escAttr(d)}" ${d === selected ? 'selected' : ''}>${escAttr(d)}</option>`).join('');
-
             let sno = 1;
             let rows = '';
             deptNames.forEach(dept => {
                 const ids = groups[dept];
-                const idsListJs = ids.map(id => `'${id}'`).join(',');
                 ids.forEach((id, idx) => {
                     const t = appData.teachers[id];
-                    const currentDept = (t.department || '').trim();
                     const stat = workloadMap[id] || { periodCount: 0, sections: new Set() };
                     const sectionsText = Array.from(stat.sections)
                         .sort((a, b) => a.localeCompare(b, undefined, { numeric: true })).join(', ') || '—';
@@ -2433,12 +2861,10 @@
 
                     rows += `<tr>
                         <td>${sno++}</td>
-                        ${idx === 0 ? `<td class="wl-dept-cell" rowspan="${ids.length}">
-                            <select class="wl-dept-select" onchange="reassignDepartmentGroup([${idsListJs}], this.value)">
-                                ${deptOptionsHTML(currentDept)}
-                            </select>
-                        </td>` : ''}
-                        <td class="wl-name-cell">${t.name}</td>
+                        ${idx === 0 ? `<td class="wl-dept-cell" rowspan="${ids.length}"><span class="wl-dept-label">${escHTML(dept)}</span></td>` : ''}
+                        <td class="wl-name-cell">
+                            <span class="wl-name-text wl-name-clickable" onclick="openTeacherQuickInfoModal('${id}')" title="Click for details, or to change department">${t.name}</span>
+                        </td>
                         <td class="wl-sections-cell">${sectionsText}</td>
                         <td class="wl-load-cell">
                             <input type="number" class="wl-load-input" min="0" value="${effectiveLoad}" title="Auto-calculated: ${autoLoad}${hasOverride ? ' (currently manually overridden)' : ''}" onchange="updateTeacherWorkloadOverride('${id}', this.value, ${autoLoad})">${hasOverride ? `<span class="wl-manual-tag" title="Manually overridden — auto value is ${autoLoad}">✎ manual</span>` : ''}
@@ -2475,6 +2901,51 @@
             if (mgr) mgr.innerHTML = renderDepartmentManagerHTML();
             refreshTeacherWorkloadTable();
         }
+
+        function openTeacherQuickInfoModal(teacherId) {
+            const t = appData.teachers[teacherId];
+            if (!t) return;
+            const depts = getDepartments();
+            const stat = computeAllTeacherWorkloads()[teacherId] || { periodCount: 0, sections: new Set() };
+            const sectionsText = Array.from(stat.sections)
+                .sort((a, b) => a.localeCompare(b, undefined, { numeric: true })).join(', ') || '—';
+            const autoLoad = stat.periodCount;
+            const hasOverride = t.workLoadOverride !== undefined && t.workLoadOverride !== null && t.workLoadOverride !== '';
+            const effectiveLoad = hasOverride ? t.workLoadOverride : autoLoad;
+            const subjectNames = (t.subjects && t.subjects.length > 0) ?
+                t.subjects.map(code => `${getSubjectName(code)} (${code})`).join(', ') : 'Not Assigned';
+            const currentDept = (t.department || '').trim();
+            const deptOptions = `<option value="" ${!currentDept ? 'selected' : ''}>Unassigned</option>` +
+                depts.map(d => `<option value="${escAttr(d)}" ${d === currentDept ? 'selected' : ''}>${escAttr(d)}</option>`).join('');
+
+            const html = `
+                <h3>👨‍🏫 ${escHTML(t.name)}</h3>
+                <div class="ti-info-grid">
+                    <div class="ti-row"><span class="ti-label">Teacher Code</span><span class="ti-value">${escHTML(t.minimalId || teacherId)}</span></div>
+                    <div class="ti-row"><span class="ti-label">Subjects</span><span class="ti-value">${escHTML(subjectNames)}</span></div>
+                    <div class="ti-row"><span class="ti-label">Handling Sections</span><span class="ti-value">${escHTML(sectionsText)}</span></div>
+                    <div class="ti-row"><span class="ti-label">Total Load</span><span class="ti-value">${effectiveLoad}${hasOverride ? ' (manual)' : ''}</span></div>
+                    ${t.extraWorkload ? `<div class="ti-row"><span class="ti-label">Extra Workload</span><span class="ti-value">${escHTML(t.extraWorkload)}</span></div>` : ''}
+                </div>
+                <label>Department</label>
+                <select id="teacherQuickDeptSelect">${deptOptions}</select>
+                <div class="btn-row">
+                    <button class="btn-secondary" onclick="closeModal()">Close</button>
+                    <button class="btn-primary" onclick="saveTeacherQuickDept('${teacherId}')">Save</button>
+                </div>
+            `;
+            openModal(html);
+        }
+
+        function saveTeacherQuickDept(teacherId) {
+            const sel = document.getElementById('teacherQuickDeptSelect');
+            if (!sel) return;
+            assignTeacherDepartment(teacherId, sel.value);
+            closeModal();
+            showToast('Department updated');
+        }
+        window.openTeacherQuickInfoModal = openTeacherQuickInfoModal;
+        window.saveTeacherQuickDept = saveTeacherQuickDept;
 
         function updateTeacherWorkloadField(teacherId, field, value) {
             if (!appData.teachers[teacherId]) return;
@@ -2514,6 +2985,22 @@
         }
 
         function getTeacherMinimal(id) { const t = appData.teachers[id]; return t ? t.minimalId : (id || ''); }
+
+        // Resolves whatever a user typed in a teacher-code search box back to the
+        // actual teacher ID key. Tries an exact match on minimalId first (that's
+        // what's shown/typed in these boxes), then falls back to matching the raw
+        // teacher ID itself, so older data (or a teacher with no code set) still works.
+        function resolveTeacherByCode(input) {
+            const q = String(input || '').trim().toUpperCase();
+            if (!q) return null;
+            if (appData.teachers[input]) return input; // exact ID match, case-sensitive
+            for (const id of Object.keys(appData.teachers)) {
+                const min = (appData.teachers[id].minimalId || '').trim().toUpperCase();
+                if (min && min === q) return id;
+            }
+            const idUpperMatch = Object.keys(appData.teachers).find(id => id.toUpperCase() === q);
+            return idUpperMatch || null;
+        }
 
         function getSubjectName(code) {
             if (!code) return '';
@@ -2558,8 +3045,309 @@
             return dates;
         }
 
+        // ═══════════════════════════════════════════════════════════════
+        // CALENDAR (.ics) EXPORT — for importing a class's or teacher's
+        // weekly timetable into a phone calendar app (Google/Apple/Outlook/
+        // Samsung), which then handles reminders/notifications natively.
+        // Assumes school timezone is Asia/Kolkata (IST, UTC+5:30, no DST).
+        // ═══════════════════════════════════════════════════════════════
+        const ICS_DAY_CODE = { Monday: 'MO', Tuesday: 'TU', Wednesday: 'WE', Thursday: 'TH', Friday: 'FR', Saturday: 'SA', Sunday: 'SU' };
+        const ICS_WEEKDAY_INDEX = { Sunday: 0, Monday: 1, Tuesday: 2, Wednesday: 3, Thursday: 4, Friday: 5, Saturday: 6 };
+
+        function _icsPad2(n) { return String(n).padStart(2, '0'); }
+
+        function _icsEscapeText(s) {
+            return String(s || '')
+                .replace(/\\/g, '\\\\')
+                .replace(/;/g, '\\;')
+                .replace(/,/g, '\\,')
+                .replace(/\n/g, '\\n');
+        }
+
+        // Folds a line to comply with RFC5545's 75-octet limit (calendar apps
+        // can be strict about this for long SUMMARY/DESCRIPTION values).
+        function _icsFoldLine(line) {
+            if (line.length <= 74) return line;
+            let out = line.slice(0, 74);
+            let rest = line.slice(74);
+            while (rest.length > 0) {
+                out += '\r\n ' + rest.slice(0, 73);
+                rest = rest.slice(73);
+            }
+            return out;
+        }
+
+        // Local (school-timezone) date+time as "YYYYMMDDTHHMMSS" — paired with a TZID param.
+        function _icsLocalDateTime(dateObj) {
+            return `${dateObj.getFullYear()}${_icsPad2(dateObj.getMonth() + 1)}${_icsPad2(dateObj.getDate())}T${_icsPad2(dateObj.getHours())}${_icsPad2(dateObj.getMinutes())}00`;
+        }
+
+        // UTC "Z" timestamp — required by RFC5545 for RRULE's UNTIL value.
+        // dateObj is interpreted as IST (UTC+5:30) wall-clock time.
+        function _icsUntilUTC(dateObj) {
+            const utcMs = dateObj.getTime() - (5 * 60 + 30) * 60 * 1000;
+            const d = new Date(utcMs);
+            return `${d.getUTCFullYear()}${_icsPad2(d.getUTCMonth() + 1)}${_icsPad2(d.getUTCDate())}T${_icsPad2(d.getUTCHours())}${_icsPad2(d.getUTCMinutes())}${_icsPad2(d.getUTCSeconds())}Z`;
+        }
+
+        // First calendar date on/after `fromDate` (a Date) that falls on `dayName` (e.g. "Monday").
+        function _icsNextDateForDay(fromDate, dayName) {
+            const target = ICS_WEEKDAY_INDEX[dayName];
+            const d = new Date(fromDate.getFullYear(), fromDate.getMonth(), fromDate.getDate());
+            const diff = (target - d.getDay() + 7) % 7;
+            d.setDate(d.getDate() + diff);
+            return d;
+        }
+
+        const ICS_VTIMEZONE =
+`BEGIN:VTIMEZONE
+TZID:Asia/Kolkata
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZOFFSETFROM:+0530
+TZOFFSETTO:+0530
+TZNAME:IST
+END:STANDARD
+END:VTIMEZONE`;
+
+        // Builds one VEVENT (recurring weekly) for a single filled timetable slot.
+        function _icsBuildEvent(opts) {
+            const { summary, description, day, startTime, endTime, untilDate, reminderMinutes, uidSeed } = opts;
+            const today = new Date();
+            const firstDate = _icsNextDateForDay(today, day);
+            const [sh, sm] = startTime.split(':').map(Number);
+            const [eh, em] = endTime.split(':').map(Number);
+            const dtStart = new Date(firstDate); dtStart.setHours(sh, sm, 0, 0);
+            const dtEnd = new Date(firstDate); dtEnd.setHours(eh, em, 0, 0);
+            const untilAnchor = new Date(untilDate + 'T23:59:59');
+
+            const lines = [];
+            lines.push('BEGIN:VEVENT');
+            lines.push('UID:' + uidSeed + '-' + Date.now().toString(36) + '@timetable-app');
+            lines.push('DTSTAMP:' + _icsUntilUTC(new Date()));
+            lines.push('DTSTART;TZID=Asia/Kolkata:' + _icsLocalDateTime(dtStart));
+            lines.push('DTEND;TZID=Asia/Kolkata:' + _icsLocalDateTime(dtEnd));
+            lines.push('RRULE:FREQ=WEEKLY;BYDAY=' + ICS_DAY_CODE[day] + ';UNTIL=' + _icsUntilUTC(untilAnchor));
+            lines.push(_icsFoldLine('SUMMARY:' + _icsEscapeText(summary)));
+            if (description) lines.push(_icsFoldLine('DESCRIPTION:' + _icsEscapeText(description)));
+            if (reminderMinutes > 0) {
+                lines.push('BEGIN:VALARM');
+                lines.push('ACTION:DISPLAY');
+                lines.push('DESCRIPTION:Reminder');
+                lines.push('TRIGGER:-PT' + reminderMinutes + 'M');
+                lines.push('END:VALARM');
+            }
+            lines.push('END:VEVENT');
+            return lines.join('\r\n');
+        }
+
+        function generateTimetableICS(opts) {
+            const { mode, keys, source, untilDate, reminderMinutes } = opts;
+            const periodKeys = getAllPeriodKeys();
+            const events = [];
+
+            if (mode === 'class') {
+                keys.forEach(classKey => {
+                    const [cls, ...secParts] = classKey.split('-');
+                    const sec = secParts.join('-');
+                    DAYS.forEach(day => {
+                        periodKeys.forEach(p => {
+                            const val = getCellValueFromSource(source, classKey, day, p);
+                            if (!val.subject || !val.teacher) return;
+                            const t = appData.settings.periodTimes && appData.settings.periodTimes[p];
+                            if (!t) return;
+                            const subjName = getSubjectName(val.subject);
+                            const teacherName = val.teacher === 'EVENT' ? 'Event' : getTeacherName(val.teacher);
+                            events.push(_icsBuildEvent({
+                                summary: `${subjName} — ${cls}-${sec}`,
+                                description: `Teacher: ${teacherName}\\nPeriod: ${p}`,
+                                day, startTime: t.start, endTime: t.end,
+                                untilDate, reminderMinutes,
+                                uidSeed: 'cls-' + classKey + '-' + day + '-' + p
+                            }));
+                        });
+                    });
+                });
+            } else {
+                const classKeys = getClassKeys();
+                keys.forEach(teacherId => {
+                    DAYS.forEach(day => {
+                        periodKeys.forEach(p => {
+                            classKeys.forEach(classKey => {
+                                const val = getCellValueFromSource(source, classKey, day, p);
+                                if (val.teacher !== teacherId || !val.subject) return;
+                                const t = appData.settings.periodTimes && appData.settings.periodTimes[p];
+                                if (!t) return;
+                                const subjName = getSubjectName(val.subject);
+                                events.push(_icsBuildEvent({
+                                    summary: `${subjName} — ${classKey}`,
+                                    description: `Class: ${classKey}\\nPeriod: ${p}`,
+                                    day, startTime: t.start, endTime: t.end,
+                                    untilDate, reminderMinutes,
+                                    uidSeed: 'tch-' + teacherId + '-' + classKey + '-' + day + '-' + p
+                                }));
+                            });
+                        });
+                    });
+                });
+            }
+
+            if (events.length === 0) return null;
+            const cal = [
+                'BEGIN:VCALENDAR',
+                'VERSION:2.0',
+                'PRODID:-//School Timetable Manager//EN',
+                'CALSCALE:GREGORIAN',
+                ICS_VTIMEZONE.replace(/\n/g, '\r\n'),
+                ...events,
+                'END:VCALENDAR'
+            ].join('\r\n');
+            return cal;
+        }
+
+        function downloadICS(filename, content) {
+            const blob = new Blob([content], { type: 'text/calendar;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function openCalendarExportModal() {
+            const classKeys = getClassKeys();
+            const teacherIds = Object.keys(appData.teachers).sort((a, b) =>
+                (appData.teachers[a].name || '').localeCompare(appData.teachers[b].name || ''));
+            const defaultUntil = new Date();
+            defaultUntil.setMonth(defaultUntil.getMonth() + 6);
+            const defaultUntilStr = defaultUntil.toISOString().split('T')[0];
+
+            const html = `
+                <h3>📆 Export to Calendar (.ics)</h3>
+                <p style="font-size:11px;color:#64748b;margin-bottom:10px;">
+                    Downloads a standard calendar file. Open it on a phone to import into Google Calendar,
+                    Apple Calendar, Outlook, or Samsung Calendar — reminders will then come from that app.
+                </p>
+                <div class="form-row" style="margin-bottom:8px;">
+                    <div>
+                        <label>Export for</label>
+                        <select id="calExportMode" onchange="renderCalExportList()">
+                            <option value="class">Classes</option>
+                            <option value="teacher">Teachers</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Schedule source</label>
+                        <select id="calExportSource">
+                            <option value="master">Master Schedule (stable, recommended)</option>
+                            <option value="working">Working Space (current draft)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row" style="margin-bottom:10px;">
+                    <div>
+                        <label>Repeat weekly until</label>
+                        <input type="date" id="calExportUntil" value="${defaultUntilStr}" />
+                    </div>
+                    <div>
+                        <label>Reminder before class</label>
+                        <select id="calExportReminder">
+                            <option value="0">No reminder</option>
+                            <option value="5">5 minutes before</option>
+                            <option value="10" selected>10 minutes before</option>
+                            <option value="15">15 minutes before</option>
+                            <option value="30">30 minutes before</option>
+                        </select>
+                    </div>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+                    <span style="font-weight:600;font-size:11.5px;" id="calExportListLabel">Select classes</span>
+                    <span style="display:flex;gap:6px;">
+                        <button type="button" onclick="setAllCalExportCheckboxes(true)" style="font-size:10.5px;padding:3px 10px;border-radius:5px;border:none;background:#2563eb;color:#fff;cursor:pointer;font-weight:600;">Select All</button>
+                        <button type="button" onclick="setAllCalExportCheckboxes(false)" style="font-size:10.5px;padding:3px 10px;border-radius:5px;border:none;background:#f1f5f9;color:#1e293b;cursor:pointer;font-weight:600;">Deselect All</button>
+                    </span>
+                </div>
+                <div id="calExportListWrap" style="display:grid;grid-template-columns:1fr 1fr;gap:6px;max-height:220px;overflow-y:auto;padding:6px;border:1px solid #e2e8f0;border-radius:6px;background:#f8fafc;"></div>
+                <div class="btn-row">
+                    <button class="btn-secondary" onclick="closeModal()">Cancel</button>
+                    <button class="btn-primary" onclick="doExportCalendarICS()">📆 Download .ics</button>
+                </div>
+            `;
+            openModal(html, 'modal-lg');
+            window._calExportData = { classKeys, teacherIds };
+            renderCalExportList();
+        }
+
+        function renderCalExportList() {
+            const mode = document.getElementById('calExportMode').value;
+            const { classKeys, teacherIds } = window._calExportData;
+            const wrap = document.getElementById('calExportListWrap');
+            const label = document.getElementById('calExportListLabel');
+            if (mode === 'class') {
+                label.textContent = 'Select classes';
+                wrap.innerHTML = classKeys.map(k =>
+                    `<label class="subst-check-item" style="width:100%;"><input type="checkbox" class="cal-export-checkbox" value="${escAttr(k)}" checked /> <span>${escHTML(k)}</span></label>`
+                ).join('') || '<div class="empty-msg">No classes yet.</div>';
+            } else {
+                label.textContent = 'Select teachers';
+                wrap.innerHTML = teacherIds.map(id =>
+                    `<label class="subst-check-item" style="width:100%;"><input type="checkbox" class="cal-export-checkbox" value="${escAttr(id)}" checked /> <span>${escHTML(appData.teachers[id].name)} (${escHTML(id)})</span></label>`
+                ).join('') || '<div class="empty-msg">No teachers yet.</div>';
+            }
+        }
+
+        function setAllCalExportCheckboxes(checked) {
+            document.querySelectorAll('.cal-export-checkbox').forEach(cb => cb.checked = checked);
+        }
+
+        async function doExportCalendarICS() {
+            const mode = document.getElementById('calExportMode').value;
+            const source = document.getElementById('calExportSource').value;
+            const untilDate = document.getElementById('calExportUntil').value;
+            const reminderMinutes = parseInt(document.getElementById('calExportReminder').value, 10);
+            const selectedKeys = Array.from(document.querySelectorAll('.cal-export-checkbox:checked')).map(cb => cb.value);
+
+            if (selectedKeys.length === 0) { showToast('Select at least one ' + (mode === 'class' ? 'class' : 'teacher'), 'error'); return; }
+            if (!untilDate) { showToast('Choose an end date for the weekly repeat', 'error'); return; }
+            if (source === 'master' && Object.keys(masterTimetable).length === 0) {
+                showToast('No Master Schedule saved yet — choose Working Space, or set a Master first', 'error');
+                return;
+            }
+            if (!(await customConfirm(`Generate a calendar file for ${selectedKeys.length} ${mode === 'class' ? 'class(es)' : 'teacher(s)'}, repeating weekly until ${untilDate}?`))) return;
+
+            const ics = generateTimetableICS({ mode, keys: selectedKeys, source, untilDate, reminderMinutes });
+            if (!ics) { showToast('No timetable entries found for that selection', 'error'); return; }
+            downloadICS('timetable_' + mode + '_' + Date.now() + '.ics', ics);
+            markBackupDone();
+            closeModal();
+            showToast('Calendar file downloaded — open it on your phone to import');
+        }
+
+        window.openCalendarExportModal = openCalendarExportModal;
+        window.renderCalExportList = renderCalExportList;
+        window.setAllCalExportCheckboxes = setAllCalExportCheckboxes;
+        window.doExportCalendarICS = doExportCalendarICS;
+
         function getCellValue(classKey, day, period) {
             const activeTable = (viewMode === 'master') ? masterTimetable : appData.timetable;
+            const c = activeTable[classKey];
+            if (!c) return { subject: null, teacher: null };
+            const d = c[day];
+            if (!d) return { subject: null, teacher: null };
+            const pv = d[period];
+            if (!pv) return { subject: null, teacher: null };
+            return pv;
+        }
+
+        // Same lookup as getCellValue, but lets the caller pick 'master' or 'working'
+        // explicitly instead of following the current on-screen viewMode. Used by
+        // exports (PDF/CSV/Calendar) so what gets exported doesn't silently change
+        // just because someone toggled the view while the export modal was open.
+        function getCellValueFromSource(source, classKey, day, period) {
+            const activeTable = (source === 'master') ? masterTimetable : appData.timetable;
             const c = activeTable[classKey];
             if (!c) return { subject: null, teacher: null };
             const d = c[day];
@@ -2802,13 +3590,30 @@
         }
 
         // ───────────── STORAGE ─────────────
-        function saveData() {
+        let _saveDataTimeout = null;
+        function saveDataNow() {
+            clearTimeout(_saveDataTimeout);
+            _saveDataTimeout = null;
             try {
                 localStorage.setItem('timetableAppData_v2', JSON.stringify(appData));
                 localStorage.setItem('masterTimetableData_v2', JSON.stringify(masterTimetable));
                 document.getElementById('lastSaved').textContent = 'saved ' + new Date().toLocaleTimeString();
             } catch (e) { console.warn('Save error', e); }
         }
+
+        // PERF: render() calls saveData() at the end of every single change (44 call
+        // sites — every edit, import, swap, etc.), and each call was a synchronous
+        // JSON.stringify + localStorage.setItem of the ENTIRE app state, including a
+        // separate masterTimetable stringify. On a large timetable this is real work
+        // repeated on every keystroke-triggered action. Debouncing collapses rapid
+        // consecutive saves (e.g. bulk fill, CSV import looping over rows) into one
+        // write. beforeunload below guarantees a pending debounced save still lands
+        // if the tab is closed/refreshed before the timer fires.
+        function saveData() {
+            clearTimeout(_saveDataTimeout);
+            _saveDataTimeout = setTimeout(saveDataNow, 400);
+        }
+        window.addEventListener('beforeunload', saveDataNow);
 
         function loadData() {
             try {
@@ -2897,6 +3702,61 @@
 
         window.markBackupDone = markBackupDone;
         window.dismissBackupBanner = dismissBackupBanner;
+
+        // ───────────── GRID VIEW MODE (Compact / General / Detailed) ─────────────
+        const GRID_VIEW_PREF_KEY = 'timetableApp_gridViewMode';
+        let gridViewMode = 'general'; // 'compact' | 'general' | 'detailed'
+        const GRID_VIEW_LABELS = { compact: '🔍 View: Compact ▾', general: '🔍 View: General ▾', detailed: '🔍 View: Detailed ▾' };
+
+        function toggleViewMenu(e) {
+            e.stopPropagation();
+            document.getElementById('viewMenu').classList.toggle('open');
+        }
+        function closeViewMenu() {
+            document.getElementById('viewMenu').classList.remove('open');
+        }
+        document.addEventListener('click', function(e) {
+            const menu = document.getElementById('viewMenu');
+            if (menu && menu.classList.contains('open') && !menu.contains(e.target) && e.target.id !== 'btnViewToggle') {
+                menu.classList.remove('open');
+            }
+        });
+
+        function setGridViewMode(mode, skipSave) {
+            if (!['compact', 'general', 'detailed'].includes(mode)) mode = 'general';
+            gridViewMode = mode;
+            const wrap = document.getElementById('tableWrap');
+            const btn = document.getElementById('btnViewToggle');
+            const timetableEl = document.getElementById('timetable');
+            const detailEl = document.getElementById('detailedTeacherView');
+            if (btn) {
+                btn.textContent = GRID_VIEW_LABELS[mode];
+                btn.classList.toggle('active', mode !== 'general');
+            }
+            if (wrap) wrap.classList.toggle('comfortable-zoom', mode === 'general');
+
+            if (viewMode === 'working') {
+                if (mode === 'detailed') {
+                    if (timetableEl) timetableEl.style.display = 'none';
+                    if (detailEl) detailEl.style.display = 'block';
+                    renderDetailedTeacherView();
+                } else {
+                    if (detailEl) detailEl.style.display = 'none';
+                    if (timetableEl) timetableEl.style.display = '';
+                }
+            }
+            if (!skipSave) {
+                try { localStorage.setItem(GRID_VIEW_PREF_KEY, mode); } catch (e) { /* ignore */ }
+            }
+        }
+        function applySavedGridViewPref() {
+            let saved = 'general';
+            try { saved = localStorage.getItem(GRID_VIEW_PREF_KEY) || 'general'; } catch (e) { /* ignore */ }
+            setGridViewMode(saved, true);
+        }
+        window.toggleViewMenu = toggleViewMenu;
+        window.closeViewMenu = closeViewMenu;
+        window.setGridViewMode = setGridViewMode;
 
         function clearAllData() {
             appData.classes = [];
@@ -3007,61 +3867,25 @@
             if (r) r.title = redoStack.length > 0 ? `Redo (${redoStack.length} step${redoStack.length > 1 ? 's' : ''}) — Ctrl+Shift+Z` : 'Nothing to redo';
         }
 
-        // ───────────── PERIOD LAYOUT (event columns) ─────────────
-        function getPeriodLayout(periodKey) {
-            const classKeys = getClassKeys();
-            if (classKeys.length === 0) {
-                return { normalDays: [...DAYS], eventGroups: [] };
-            }
-            const dayEventName = {};
-            DAYS.forEach(d => {
-                let allEvent = true;
-                let eName = null;
-                classKeys.forEach(ck => {
-                    const v = getCellValue(ck, d, periodKey);
-                    if (v.teacher === 'EVENT' && v.subject) {
-                        if (!eName) eName = getSubjectName(v.subject);
-                    } else {
-                        allEvent = false;
-                    }
-                });
-                dayEventName[d] = allEvent ? eName : null;
-            });
-            const normalDays = DAYS.filter(d => !dayEventName[d]);
-            const eventGroups = [];
-            let i = 0;
-            while (i < DAYS.length) {
-                const d = DAYS[i];
-                if (dayEventName[d]) {
-                    const grpDays = [d];
-                    const grpName = dayEventName[d];
-                    let j = i + 1;
-                    while (j < DAYS.length && dayEventName[DAYS[j]]) {
-                        grpDays.push(DAYS[j]); j++;
-                    }
-                    eventGroups.push({ name: grpName, days: grpDays });
-                    i = j;
-                } else { i++; }
-            }
-            return { normalDays, eventGroups };
-        }
-
         // ───────────── RENDER ─────────────
         function render() {
             const pCount = getPeriodsPerDay();
             const periodKeys = getAllPeriodKeys();
             const classList = getClassList();
             const conflicts = findConflicts();
-
-            // --- Determine View Context ---
+            // PERF: build a lookup Set once per render instead of letting isConflict()
+            // re-run the full O(n) findConflicts() scan for every single cell below.
+            // Cache is scoped to this render() call only, so it can never go stale —
+            // any data change already triggers a fresh render() (see 44 call sites).
+            const conflictSet = new Set();
+            conflicts.forEach(c => {
+                c.classes.forEach(cls => conflictSet.add(cls + '|' + c.day + '|' + c.period));
+            });
             if (dateRangeActive && dateRangeStart && dateRangeEnd) {
                 currentViewDays = getDatesBetween(dateRangeStart, dateRangeEnd);
             } else {
                 currentViewDays = DAYS; // default day strings
             }
-
-            const periodLayouts = {};
-            periodKeys.forEach(p => { periodLayouts[p] = getPeriodLayout(p); });
 
             const thead = document.getElementById('tableHead');
             let headerHtml = '<tr>';
@@ -3079,26 +3903,8 @@
 
             periodKeys.forEach((p, pi) => {
                 const timeStr = getPeriodDisplay(p);
-                // For date mode, we bypass event grouping for now to keep it standard
-                if (dateRangeActive) {
-                    const sepCls = pi !== 0 ? ' period-group-sep' : '';
-                    headerHtml += `<th class="col-period${sepCls}" colspan="${currentViewDays.length}">${p}${timeStr ? '<span class="period-time">'+timeStr+'</span>' : ''}</th>`;
-                } else {
-                    const { normalDays, eventGroups } = periodLayouts[p];
-                    const normalCount = normalDays.length;
-                    const isFirst = pi === 0;
-                    let firstAdded = false;
-                    if (normalCount > 0) {
-                        const sepCls = !isFirst ? ' period-group-sep' : '';
-                        headerHtml += `<th class="col-period${sepCls}" colspan="${normalCount}">${p}${timeStr ? '<span class="period-time">'+timeStr+'</span>' : ''}</th>`;
-                        firstAdded = true;
-                    }
-                    eventGroups.forEach(evGrp => {
-                        const sepCls = (!isFirst && !firstAdded) ? ' period-group-sep' : '';
-                        headerHtml += `<th class="col-event${sepCls}" rowspan="2">${evGrp.name}</th>`;
-                        firstAdded = true;
-                    });
-                }
+                const sepCls = pi !== 0 ? ' period-group-sep' : '';
+                headerHtml += `<th class="col-period${sepCls}" colspan="${currentViewDays.length}">${p}${timeStr ? '<span class="period-time">'+timeStr+'</span>' : ''}</th>`;
                 const pNum = parseInt(p.replace('P', ''), 10);
                 getBreaksAfterPeriod(pNum).forEach(b => {
                     headerHtml += `<th class="col-break" rowspan="2">${b.name}${b.start ? '<span class="period-time">'+b.start+'–'+b.end+'</span>' : ''}</th>`;
@@ -3107,18 +3913,10 @@
             headerHtml += '</tr><tr>';
 
             periodKeys.forEach((p, pi) => {
-                if (dateRangeActive) {
-                    currentViewDays.forEach((d, di) => {
-                        const sepCls = (pi !== 0 && di === 0) ? ' period-group-sep' : '';
-                        headerHtml += `<th class="col-period${sepCls}">${viewLabels[d]}</th>`;
-                    });
-                } else {
-                    const { normalDays } = periodLayouts[p];
-                    normalDays.forEach((d, di) => {
-                        const sepCls = (pi !== 0 && di === 0) ? ' period-group-sep' : '';
-                        headerHtml += `<th class="col-period${sepCls}">${viewLabels[d]}</th>`;
-                    });
-                }
+                currentViewDays.forEach((d, di) => {
+                    const sepCls = (pi !== 0 && di === 0) ? ' period-group-sep' : '';
+                    headerHtml += `<th class="col-period${sepCls}">${viewLabels[d]}</th>`;
+                });
             });
             headerHtml += '</tr>';
             thead.innerHTML = headerHtml;
@@ -3131,10 +3929,13 @@
                 bodyHtml =
                     `<tr><td colspan="${3 + periodKeys.length * currentViewDays.length + breakColCount}" style="text-align:center;padding:30px 0;color:#94a3b8;font-size:13px;">No classes yet. Add classes via the 📋 Classes button.</td></tr>`;
                 tbody.innerHTML = bodyHtml;
-                updateStats();
+                updateStats(conflicts.length);
                 updateSidebar();
                 updateBottomBar();
                 document.getElementById('totalConflicts').textContent = 0;
+                if (viewMode === 'working' && gridViewMode === 'detailed') {
+                    renderDetailedTeacherView();
+                }
                 saveData();
                 return;
             }
@@ -3169,7 +3970,7 @@
                         const tchrMin = getTeacherMinimal(tchr);
                         const filled = !!(subj && tchr);
                         const isEvtCell = tchr === 'EVENT';
-                        const conflict = !isEvtCell && isConflict(key, d, p);
+                        const conflict = !isEvtCell && conflictSet.has(key + '|' + d + '|' + p);
                         const selected = isCellSelected(key, d, p);
                         const substMarked = isSubstituted(key, d, p);
                         let filterClass = '';
@@ -3188,17 +3989,6 @@
                                 </td>`;
                     });
 
-                    if (!dateRangeActive) {
-                        // Add back event columns and breaks for standard mode
-                        const { eventGroups } = periodLayouts[p];
-                        eventGroups.forEach(evGrp => {
-                            const needsSep = pi !== 0 && firstCell;
-                            const clsTd = needsSep ? 'col-event period-group-sep' : 'col-event';
-                            firstCell = false;
-                            bodyHtml += `<td class="${clsTd}">${evGrp.name}</td>`;
-                        });
-                    }
-
                     const pNum = parseInt(p.replace('P', ''), 10);
                     getBreaksAfterPeriod(pNum).forEach(b => {
                         bodyHtml += `<td class="col-break">${b.name}</td>`;
@@ -3209,7 +3999,7 @@
 
             tbody.innerHTML = bodyHtml;
 
-            updateStats();
+            updateStats(conflicts.length);
             updateSidebar();
             updateBottomBar();
             document.getElementById('totalConflicts').textContent = conflicts.length;
@@ -3219,6 +4009,8 @@
 
             if (viewMode === 'master') {
                 renderMasterElderView();
+            } else if (gridViewMode === 'detailed') {
+                renderDetailedTeacherView();
             }
 
             saveData();
@@ -3539,6 +4331,7 @@
             stopEditing();
             const val = getCellValueActive(key, day, period);
             const tchrId = val.teacher || '';
+            const tchrCode = tchrId ? getTeacherMinimal(tchrId) : '';
             const subjCode = val.subject || '';
 
             const editor = document.createElement('div');
@@ -3549,13 +4342,14 @@
                 const subStr = (t && Array.isArray(t.subjects) && t.subjects.length > 0)
                     ? t.subjects.map(s => getSubjectMinimal(s)).join(', ')
                     : 'No Subj';
-                return `<option value="${k}">${t.name} (${subStr})</option>`;
+                const code = t.minimalId || k;
+                return `<option value="${escAttr(code)}">${escHTML(t.name)} (${escHTML(subStr)})</option>`;
             }).join('');
 
             editor.innerHTML = `
                         <div class="row flex-col">
                             <div class="row">
-                                <input class="tchr-input" type="text" placeholder="Teacher ID" value="${tchrId}" list="tchrDatalist_${key}" autocomplete="off" maxlength="6" />
+                                <input class="tchr-input" type="text" placeholder="Teacher code" value="${escAttr(tchrCode)}" list="tchrDatalist_${key}" autocomplete="off" maxlength="10" />
                                 <select class="subj-opt-select" style="display:none;"></select>
                             </div>
                             <div class="btn-group">
@@ -3594,13 +4388,14 @@
             const cancelBtn = editor.querySelector('.btn-cancel');
 
             function updateSubjectDropdown() {
-                const id = tchrInput.value.trim();
-                const teacher = appData.teachers[id];
+                const code = tchrInput.value.trim();
+                const id = resolveTeacherByCode(code);
+                const teacher = id ? appData.teachers[id] : null;
                 const subs = (teacher && Array.isArray(teacher.subjects)) ? teacher.subjects : [];
 
                 if (subs.length > 1) {
                     subjSelect.innerHTML = subs.map(s =>
-                        `<option value="${s}" ${s === subjCode ? 'selected' : ''}>${getSubjectMinimal(s)} - ${getSubjectName(s)}</option>`
+                        `<option value="${escAttr(s)}" ${s === subjCode ? 'selected' : ''}>${escHTML(getSubjectMinimal(s))} - ${escHTML(getSubjectName(s))}</option>`
                     ).join('');
                     subjSelect.style.display = 'block';
                 } else {
@@ -3614,7 +4409,8 @@
             tchrInput.select();
 
             function saveEdit() {
-                const newTchr = tchrInput.value.trim();
+                const enteredCode = tchrInput.value.trim();
+                const newTchr = enteredCode ? resolveTeacherByCode(enteredCode) : null;
                 const applyAll = document.getElementById('applyAllDays').checked;
 
                 if (newTchr && appData.teachers[newTchr]) {
@@ -3638,8 +4434,8 @@
                     }
                     render();
                     showToast(applyAll ? 'Applied to all days' : 'Updated');
-                } else if (newTchr) {
-                    showToast('Unknown teacher ID', 'error');
+                } else if (enteredCode) {
+                    showToast('Unknown teacher code — pick one from the suggestions', 'error');
                     return;
                 } else {
                     if (applyAll) {
@@ -3708,14 +4504,18 @@
         }
 
         // ───────────── UPDATE STATS & SIDEBAR FILTER ─────────────
-        function updateStats() {
+        function updateStats(conflictsCount) {
+            // PERF: accept a precomputed conflicts count from render() when available,
+            // so we don't run the O(n) findConflicts() scan twice more on top of the
+            // one render() already did. Falls back to computing it if called standalone.
+            const count = (typeof conflictsCount === 'number') ? conflictsCount : findConflicts().length;
             const stats = computeStats();
             document.getElementById('totalPeriods').textContent = stats.totalPeriods;
             document.getElementById('totalClasses').textContent = getClassList().length;
             document.getElementById('totalTeachers').textContent = Object.keys(appData.teachers).length;
             document.getElementById('totalSubjects').textContent = Object.keys(appData.subjects).length;
-            document.getElementById('totalConflicts').textContent = findConflicts().length;
-            document.getElementById('totalConflicts').style.color = findConflicts().length > 0 ? '#dc2626' : '#2563eb';
+            document.getElementById('totalConflicts').textContent = count;
+            document.getElementById('totalConflicts').style.color = count > 0 ? '#dc2626' : '#2563eb';
             updateDateModeButton();
         }
 
@@ -3866,10 +4666,11 @@
         // ═══════════════════════════════════════════════════════════════
         // HELP SYSTEM — in-app guide + "Copy for AI" explainer
         // ═══════════════════════════════════════════════════════════════
-        // Each topic below powers three things at once, from one source of truth:
-        //   1. The "❓ Help" modal (accordion, searchable)
-        //   2. Small "ⓘ" info-dots that can jump straight to a topic
-        //   3. The "Copy for AI" text block a teacher can paste into any AI chat
+        // Each topic below powers two things at once, from one source of truth:
+        //   1. The "❓ Help" modal (accordion, searchable) — the single entry point
+        //      for all in-app help (the old per-section "ⓘ" shortcut buttons were
+        //      removed since they opened this exact same modal, just pre-scrolled)
+        //   2. The "Copy for AI" text block a teacher can paste into any AI chat
         const HELP_TOPICS = [
             {
                 id: 'overview',
@@ -3967,13 +4768,17 @@
             {
                 id: 'export-import',
                 icon: '📤',
-                title: 'Import & Export (CSV / PDF)',
+                title: 'Import & Export (CSV / PDF / Calendar)',
                 body: `<ul>
                         <li><b>📥 Import CSV</b> — bring in classes, subjects, or teachers from a spreadsheet.</li>
                         <li><b>📤 Export CSV</b> — download the full timetable as a spreadsheet file (visible in
                             Master Schedule mode).</li>
                         <li><b>📄 Classes PDF / 📄 Teachers PDF</b> — printable, formatted PDF timetables, either
                             per-class or per-teacher, that you can choose which ones to include.</li>
+                        <li><b>📆 Calendar (.ics)</b> — download a calendar file for one or more classes or
+                            teachers. Open it on a phone to import into Google Calendar, Apple Calendar, Outlook,
+                            or Samsung Calendar — each period becomes a repeating weekly event, with reminders
+                            handled by that calendar app.</li>
                        </ul>
                        Exporting is also how you back up your work — see the next topic.`
             },
@@ -4140,25 +4945,56 @@ SUGGESTED QUESTIONS TO TRY ASKING
         }
 
         // ───────────── IMPORT CSV ─────────────
+        // Parses one CSV line into an array of fields, quote-aware (handles commas
+        // and escaped quotes inside quoted fields).
+        function parseCsvLine(line) {
+            const vals = [];
+            let current = '', inQuotes = false;
+            for (let ch of line) {
+                if (ch === '"') { inQuotes = !inQuotes; }
+                else if (ch === ',' && !inQuotes) { vals.push(current.trim()); current = ''; }
+                else { current += ch; }
+            }
+            vals.push(current.trim());
+            return vals.map(v => v.replace(/^"|"$/g, '').trim());
+        }
+
+        // BUG FIX: exported CSVs (see downloadCSV/exportCSV) always prepend a few
+        // metadata lines — TITLE, Generated Date, Effective Date Range, a blank
+        // spacer — before the real header row. Re-importing an exported file used
+        // to treat line 1 ("TITLE: ...") as the header, which failed the timetable
+        // header check outright and, for classes/subjects/teachers (no header
+        // check at all), silently imported the metadata rows as garbage data.
+        // Fix: scan the first several rows for the one that actually matches the
+        // expected header for this import type, and treat everything before it as
+        // preamble. Falls back to row 0 if nothing matches, so plain hand-made
+        // CSVs without the metadata block still work exactly as before.
+        function findHeaderRowIndex(allRows, expectedFirstCol) {
+            const target = expectedFirstCol.toLowerCase();
+            const scanLimit = Math.min(allRows.length, 10);
+            for (let i = 0; i < scanLimit; i++) {
+                const first = (allRows[i][0] || '').toLowerCase();
+                if (first === target) return i;
+            }
+            return 0;
+        }
+
         function importCSV(file, type) {
             const reader = new FileReader();
             reader.onload = function(e) {
                 const text = e.target.result;
                 const lines = text.split('\n').filter(l => l.trim());
                 if (lines.length < 2) { showToast('Empty or invalid CSV', 'error'); return; }
-                const headers = lines[0].split(',').map(h => h.trim().replace(/^"|"$/g, ''));
-                const data = lines.slice(1).map(line => {
-                    const vals = [];
-                    let current = '',
-                        inQuotes = false;
-                    for (let ch of line) {
-                        if (ch === '"') { inQuotes = !inQuotes; } else if (ch === ',' && !inQuotes) { vals.push(
-                            current.trim());
-                            current = ''; } else { current += ch; }
-                    }
-                    vals.push(current.trim());
-                    return vals.map(v => v.replace(/^"|"$/g, '').trim());
-                });
+                const allRows = lines.map(parseCsvLine);
+                const expectedFirstColByType = {
+                    classes: 'class',
+                    subjects: 'code',
+                    teachers: 'id',
+                    timetable: 'class-section'
+                };
+                const headerIdx = findHeaderRowIndex(allRows, expectedFirstColByType[type] || '');
+                const headers = allRows[headerIdx];
+                const data = allRows.slice(headerIdx + 1);
 
                 if (type === 'classes') {
                     let count = 0;
@@ -5639,6 +6475,7 @@ FILES GENERATED: Confirmation of the 4 downloadable .csv files.`;
             render();
             saveData();
             checkBackupReminder();
+            applySavedGridViewPref();
             setInterval(() => { saveData(); }, 30000);
             setInterval(checkBackupReminder, 60 * 60 * 1000);
         }
@@ -6645,8 +7482,8 @@ FILES GENERATED: Confirmation of the 4 downloadable .csv files.`;
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF({ orientation: 'landscape', unit: 'mm', format: 'a4' });
 
+            // ── Page 1: summary notice table (quick at-a-glance reference) ──
             const y = drawFormalPdfHeader(doc, 'EVENT & PERIOD BLOCK NOTICE', null);
-
             const head = [['#', 'Event Name', 'Date Range (DD/MM/YYYY)', 'Days Affected', 'Periods', 'Classes Affected']];
             const body = logs.map((item, idx) => [
                 idx + 1,
@@ -6656,7 +7493,6 @@ FILES GENERATED: Confirmation of the 4 downloadable .csv files.`;
                 item.periods.join(', '),
                 item.applyToAll ? 'All Classes (' + item.classKeys.length + ')' : item.classKeys.join(', ')
             ]);
-
             doc.autoTable({
                 head: head,
                 body: body,
@@ -6667,7 +7503,74 @@ FILES GENERATED: Confirmation of the 4 downloadable .csv files.`;
                 margin: { left: 10, right: 10 }
             });
 
+            // ── Following pages: the actual timetable for every affected day, ──
+            // ── with the event period(s) highlighted, so the notice isn't a  ──
+            // ── near-empty page — it shows real schedule context.            ──
+            const periodKeys = getAllPeriodKeys();
+            const columnPeriodMap = [null]; // first column is "Class"
+            periodKeys.forEach(p => {
+                columnPeriodMap.push(p);
+                const pNum = parseInt(p.replace('P', ''), 10);
+                getBreaksAfterPeriod(pNum).forEach(() => columnPeriodMap.push(null));
+            });
+
+            logs.forEach(item => {
+                const targetClasses = (item.applyToAll ? getClassKeys() : item.classKeys).slice().sort();
+                if (targetClasses.length === 0) return;
+
+                item.days.forEach(day => {
+                    doc.addPage();
+                    doc.setFontSize(11);
+                    doc.setFont(undefined, 'bold');
+                    doc.text('Event Timetable — ' + item.name, 14, 12);
+                    doc.setFontSize(9);
+                    doc.setFont(undefined, 'normal');
+                    doc.text('Generated: ' + new Date().toLocaleString(), 14, 16);
+                    doc.setFontSize(12);
+                    doc.setFont(undefined, 'bold');
+                    doc.text(`${day} • ${item.formattedRange} • Event period(s): ${item.periods.join(', ')}`, 14, 24);
+
+                    const evHead = ['Class'].concat(buildPeriodHead().slice(1));
+                    const evBody = targetClasses.map(classKey => {
+                        const row = [classKey];
+                        periodKeys.forEach(p => {
+                            row.push(formatClassCell(getCellValue(classKey, day, p)));
+                            const pNum = parseInt(p.replace('P', ''), 10);
+                            getBreaksAfterPeriod(pNum).forEach(b => row.push(b.name));
+                        });
+                        return row;
+                    });
+
+                    doc.autoTable({
+                        head: [evHead],
+                        body: evBody,
+                        startY: 28,
+                        styles: { fontSize: 7.5, cellPadding: 1.5, halign: 'center', valign: 'middle', lineColor: [203, 213, 225], lineWidth: 0.1 },
+                        headStyles: { fillColor: [37, 99, 235], textColor: 255, fontStyle: 'bold', fontSize: 7.5 },
+                        columnStyles: { 0: { fontStyle: 'bold', fillColor: [241, 245, 249], cellWidth: 26 } },
+                        margin: { left: 10, right: 10 },
+                        didParseCell: function(data) {
+                            if (data.section !== 'body' && data.section !== 'head') return;
+                            const raw = data.cell.raw;
+                            if (isBreakCellText(raw)) {
+                                data.cell.styles.fillColor = data.section === 'head' ? [251, 191, 36] : [254, 243, 199];
+                                data.cell.styles.textColor = data.section === 'head' ? [92, 40, 4] : [146, 64, 14];
+                                data.cell.styles.fontStyle = 'bold';
+                                return;
+                            }
+                            const colPeriod = columnPeriodMap[data.column.index];
+                            if (colPeriod && item.periods.includes(colPeriod)) {
+                                data.cell.styles.fillColor = data.section === 'head' ? [22, 163, 74] : [220, 252, 231];
+                                data.cell.styles.textColor = data.section === 'head' ? 255 : [22, 101, 52];
+                                data.cell.styles.fontStyle = 'bold';
+                            }
+                        }
+                    });
+                });
+            });
+
             doc.save('events_schedule_report_' + Date.now() + '.pdf');
+            markBackupDone();
             showToast('Event PDF downloaded successfully');
         }
 
